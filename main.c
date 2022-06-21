@@ -4,7 +4,6 @@
 #include "SettingsManager.h"
 
 argument args;
-SettingsData settings;
 
 void main(int argc, char* argv[])
 {
