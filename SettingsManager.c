@@ -44,22 +44,26 @@ void LoadSettings(SettingData* AllSettings, size_t size)
         }
         switch (type)
         {
-            case String:
+            case String:{
+                char val[100];
                 printf("%s はStringです\n", stg->key);
-                sscanf(line, "[type-%*d] %*s = %s", stg->value);
+                sscanf(line, "[type-%*d] %*s = %s", val);
+                stg->value = &val;
                 break;
-            case Int:
+            }
+            case Int:{
+                int val;
                 printf("%s はIntです\n", stg->key);
-                sscanf(line, "[type-%*d] %*s = %d", stg->value);
+                sscanf(line, "[type-%*d] %*s = %d", &val);
+                stg->value = &val;
                 break;
+            }
             default:
                 printf("エラー: 不明なDataType (%d)", type);
                 break;
         }
         i++;
-        printf("%d行目読み込み完了", i);
     }
-    printf("読み込み完了");
     fclose(fp);
 }
 
