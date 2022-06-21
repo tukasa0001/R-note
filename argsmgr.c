@@ -10,7 +10,7 @@ argument* initArgs(int argc, char* argv[])
 
     args->operation = Create;
     args->tag = NULL;
-    for (int i = 0; i < argc; i++)
+    for (int i = 1; i < argc; i++)
     {
         char* arg = argv[i];
         switch(*arg)
