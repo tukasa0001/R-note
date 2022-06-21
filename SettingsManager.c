@@ -45,5 +45,7 @@ void SaveSettings(SettingsData *settings)
         return;
     }
     //書き込み処理
+    fprintf(fp, "Folder_Path = %s", settings->folder_path);
+    fprintf(fp, "Extension = %s", settings->extension);
     fclose(fp);
 }
