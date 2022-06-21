@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include "ArgsManager.h"
 #include "FileControl.h"
+#include "SettingsManager.h"
 
 argument args;
+SettingsData settings;
+
 void main(int argc, char* argv[])
 {
     initArgs(&args, argc, argv);
