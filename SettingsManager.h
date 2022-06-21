@@ -4,9 +4,12 @@
 #include <stdio.h>
 //enum
 //構造体
+typedef struct
+{
 
+} SettingsData;
 
-void LoadSettings(SettingData *AllSettings, size_t size);
-void InitSettings(SettingData *AllSettings, size_t size);
-void SaveSettings(SettingData *AllSettings, size_t size);
+void LoadSettings(SettingsData *AllSettings, size_t size);
+void InitSettings(SettingsData *AllSettings, size_t size);
+void SaveSettings(SettingsData *AllSettings, size_t size);
 #endif
