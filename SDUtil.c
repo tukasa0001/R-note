@@ -25,7 +25,7 @@ SettingData* SDFindIndex(SettingData* data, size_t size, char* key)
     size_t length = size / sizeof(*data);
     for (size_t i = 0; i < length; i++)
     {
-        if(strcmp((data+i)->key, key)) return (data+i);
+        if(strcmp((data+i)->key, key) == 0) return (data+i);
     }
     return NULL;
 }
