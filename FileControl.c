@@ -24,11 +24,6 @@ void CreateFile(char* tag)
 //char* tag: コマンドライン引数で指定されたタグ
 void getFileName(char* filename, char* tag)
 {
-    if(sizeof(filename) < 30)
-    {
-        if(6 <= sizeof(filename)) filename = "INVALID";
-        return;
-    }
     time_t now = time(NULL);
     // 2000.01.01-00.00.00
     strftime(filename, sizeof(filename), "%Y.%m.%d-%H.%M.%S", localtime(&now));
