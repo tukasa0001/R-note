@@ -7,9 +7,9 @@ enum SDDataType
 };
 typedef struct
 {
-    char* key[28];
+    char* key;
     enum SDDataType type;
-    void* value[100];
+    void* value;
 } SettingData;
 
 void SDInit(SettingData* data, char* key, enum SDDataType type, void* value);

@@ -25,7 +25,23 @@ void LoadSettings()
         }
     }
     //読み込み処理
+    char line[128];
+    int i = 0;
+    while (fgets(line, 128, fp) != NULL)
+    {
+        char key[28];
+        enum SDDataType type;
+        sscanf(line, "[type-%d]%s = %*s", &type, key);
 
+        SettingData* stg = SDFindIndex(AllSettings, sizeof(AllSettings), key);
+        if(stg == NULL) 
+        switch (type)
+        {
+            case String:
+                break;
+        }
+        i++;
+    }
 }
 
 void initSettings()
