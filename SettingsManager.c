@@ -34,7 +34,6 @@ void LoadSettings()
         sscanf(line, "[type-%d]%s = %*s", &type, key);
 
         SettingData* stg = SDFindIndex(AllSettings, sizeof(AllSettings), key);
-        if(stg == NULL) 
         switch (type)
         {
             case String:
@@ -59,7 +58,7 @@ void SaveSettings()
         return;
     }
     //書き込み処理
-    size_t size = sizeof(AllSettings);
+    size_t size = sizeof(AllSettings) / sizeof(AllSettings[0]);
     for(int i = 0; i < size; i++)
     {
         if(i != 0) fprintf(fp, "\n");

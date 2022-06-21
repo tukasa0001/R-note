@@ -9,7 +9,7 @@
 void CreateFile(char* tag)
 {
     char filename[84];
-    getFileName(filename, sizeof(filename), tag);
+    getFileName(filename, sizeof(filename) / sizeof(filename[0]), tag);
     
     FILE* fp;
     errno_t en1;
