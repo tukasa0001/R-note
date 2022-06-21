@@ -28,5 +28,5 @@ void getFileName(char* filename, char* tag)
     // 2000.01.01-00.00.00
     strftime(filename, sizeof(filename), "%Y.%m.%d-%H.%M.%S", localtime(&now));
     strcat(filename, ".txt");
-    printf("filename: %s", tag);
+    printf("filename: %s", filename);
 }
