@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "argsmgr.h"
+#include "ArgsManager.h"
 
 argument args;
 void main(int argc, char* argv[])
