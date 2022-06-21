@@ -51,8 +51,14 @@ void SaveSettings(SettingsData *settings)
         printf("エラー: 設定ファイルを編集できませんでした。\n");
         return;
     }
+    FixSettings(settings);
     //書き込み処理
     fprintf(fp, "Folder_Path = %s\n", settings->folder_path);
     fprintf(fp, "Extension = %s\n", settings->extension);
     fclose(fp);
+}
+
+void FixSettings(SettingsData *settings)
+{
+    if(strspn(settings->folder_path, '\\') != '\0') strcat(settings->folder_path, "\\");
 }

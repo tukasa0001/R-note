@@ -12,4 +12,5 @@ typedef struct
 
 void LoadSettings(SettingsData *settings);
 void SaveSettings(SettingsData *settings);
+void FixSettings(SettingsData *settings);
 #endif
