@@ -10,4 +10,5 @@ typedef struct
 } SettingsData;
 
 void LoadSettings();
+void initSettings();
 #endif
