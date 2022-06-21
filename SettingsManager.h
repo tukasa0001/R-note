@@ -6,7 +6,8 @@
 //構造体
 typedef struct
 {
-
+    char folder_path[200];
+    char extension[10];
 } SettingsData;
 
 void LoadSettings(SettingsData *AllSettings, size_t size);
