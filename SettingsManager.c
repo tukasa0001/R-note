@@ -56,6 +56,7 @@ void LoadSettings()
         }
         i++;
     }
+    fclose(fp);
 }
 
 void initSettings()
