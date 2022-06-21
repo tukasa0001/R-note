@@ -5,16 +5,16 @@
 
 //関数名: initArgs
 //戻り値: void
-//argument* args: 書き込み先の構造体
+//argument *args: 書き込み先の構造体
 //int argc: コマンドライン引数の数
-//char* argv[]: コマンドライン引数
-void initArgs(argument* args, int argc, char* argv[])
+//char *argv[]: コマンドライン引数
+void initArgs(argument *args, int argc, char *argv[])
 {
     bool isTagAssigned = false;
 
     for (int i = 1; i < argc; i++)
     {
-        char* arg = argv[i];
+        char *arg = argv[i];
         switch(*arg)
         {
             case '-':

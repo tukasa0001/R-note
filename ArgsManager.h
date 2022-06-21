@@ -9,9 +9,9 @@ typedef enum
 typedef struct
 {
     Operation operation;
-    char* tag;
+    char *tag;
 } argument;
 
 //プロトタイプ宣言
-void initArgs(argument* args, int argc, char* argv[]);
+void initArgs(argument *args, int argc, char *argv[]);
 #endif

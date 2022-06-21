@@ -7,7 +7,7 @@
 //構造体
 
 
-void LoadSettings(SettingData* AllSettings, size_t size);
-void InitSettings(SettingData* AllSettings, size_t size);
-void SaveSettings(SettingData* AllSettings, size_t size);
+void LoadSettings(SettingData *AllSettings, size_t size);
+void InitSettings(SettingData *AllSettings, size_t size);
+void SaveSettings(SettingData *AllSettings, size_t size);
 #endif

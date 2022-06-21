@@ -5,9 +5,9 @@
 #include "SDUtil.h"
 
 
-void LoadSettings(SettingData* AllSettings, size_t size)
+void LoadSettings(SettingData *AllSettings, size_t size)
 {
-    FILE* fp;
+    FILE *fp;
     errno_t er1, er2;
     er1 = fopen_s(&fp, "settings.txt", "r");
     if(er1 != 0)
@@ -36,7 +36,7 @@ void LoadSettings(SettingData* AllSettings, size_t size)
         enum SDDataType type;
         sscanf(line, "[type-%d] %s = %*s", &type, key);
 
-        SettingData* stg = SDFindIndex(AllSettings, size, key);
+        SettingData *stg = SDFindIndex(AllSettings, size, key);
         if(stg == NULL)
         {
             i++;
@@ -67,15 +67,15 @@ void LoadSettings(SettingData* AllSettings, size_t size)
     fclose(fp);
 }
 
-void InitSettings(SettingData* AllSettings, size_t size)
+void InitSettings(SettingData *AllSettings, size_t size)
 {
     SDInitStr(&AllSettings[0], "FilePath", "C:\\notes\\");
     SDInitStr(&AllSettings[1], "Extension", "txt");
 }
 
-void SaveSettings(SettingData* AllSettings, size_t size)
+void SaveSettings(SettingData *AllSettings, size_t size)
 {
-    FILE* fp;
+    FILE *fp;
     errno_t er1 = fopen_s(&fp, "settings.txt", "w");
     if(er1 != 0)
     {

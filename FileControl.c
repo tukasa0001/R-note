@@ -5,13 +5,13 @@
 
 //関数名: CreateFile
 //戻り値: void
-//char* tag: コマンドライン引数で指定されたタグ
-void CreateFile(char* tag)
+//char *tag: コマンドライン引数で指定されたタグ
+void CreateFile(char *tag)
 {
     char filename[84];
     getFileName(filename, sizeof(filename) / sizeof(filename[0]), tag);
     
-    FILE* fp;
+    FILE *fp;
     errno_t en1;
     en1 = fopen_s(&fp, filename, "w");
     if(en1 != 0) return;
@@ -21,10 +21,10 @@ void CreateFile(char* tag)
 
 //関数名: getFileName
 //戻り値: void
-//char* filename: ファイル名の格納先(注: サイズ30以上のchar配列のポインタとすること)
+//char *filename: ファイル名の格納先(注: サイズ30以上のchar配列のポインタとすること)
 //long long unsigned int size: ファイル名の配列の大きさ
-//char* tag: コマンドライン引数で指定されたタグ
-void getFileName(char* filename, long long unsigned int size, char* tag)
+//char *tag: コマンドライン引数で指定されたタグ
+void getFileName(char *filename, long long unsigned int size, char *tag)
 {
     if(size < 30)
     {

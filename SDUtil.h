@@ -7,13 +7,13 @@ enum SDDataType
 };
 typedef struct
 {
-    char* key;
+    char *key;
     enum SDDataType type;
-    void* value;
+    void *value;
 } SettingData;
 
-void SDInit(SettingData* data, char* key, enum SDDataType type, void* value);
-void SDInitStr(SettingData* data, char* key, char* str);
-void SDInitInt(SettingData* data, char* key, int* num);
-SettingData* SDFindIndex(SettingData* data, size_t size, char* key);
+void SDInit(SettingData *data, char *key, enum SDDataType type, void *value);
+void SDInitStr(SettingData *data, char *key, char *str);
+void SDInitInt(SettingData *data, char *key, int *num);
+SettingData *SDFindIndex(SettingData *data, size_t size, char *key);
 #endif

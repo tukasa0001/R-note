@@ -2,25 +2,25 @@
 #include <string.h>
 #include "SDUtil.h"
 
-void SDInit(SettingData* data, char* key, enum SDDataType type, void* value)
+void SDInit(SettingData *data, char *key, enum SDDataType type, void *value)
 {
     data->key = key;
     data->type = type;
     data->value = value;
 }
-void SDInitStr(SettingData* data, char* key, char* str)
+void SDInitStr(SettingData *data, char *key, char *str)
 {
     data->key = key;
     data->type = String;
     data->value = str;
 }
-void SDInitInt(SettingData* data, char* key, int* num)
+void SDInitInt(SettingData *data, char *key, int *num)
 {
     data->key = key;
     data->type = Int;
     data->value = num;
 }
-SettingData* SDFindIndex(SettingData* data, size_t size, char* key)
+SettingData *SDFindIndex(SettingData *data, size_t size, char *key)
 {
     size_t length = size / sizeof(*data);
     for (size_t i = 0; i < length; i++)

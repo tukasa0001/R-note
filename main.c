@@ -7,7 +7,7 @@
 argument args;
 SettingData AllSettings[2];
 
-void main(int argc, char* argv[])
+void main(int argc, char *argv[])
 {
     initArgs(&args, argc, argv);
 
