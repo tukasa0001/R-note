@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include "argsmgr.h"
 
@@ -25,6 +26,7 @@ void initArgs(argument* args, int argc, char* argv[])
                 {
                     printf("エラー: 不正な引数: %s\n何かキーを押して終了します", arg);
                     getchar();
+                    exit(1);
                 }
                 break;
         }
