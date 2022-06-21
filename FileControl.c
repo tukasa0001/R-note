@@ -21,9 +21,9 @@ void CreateFile(char* tag)
 //関数名: getFileName
 //戻り値: void
 //char* filename: ファイル名の格納先(注: サイズ30以上のchar配列のポインタとすること)
-//int size: ファイル名の配列の大きさ
+//long long unsigned int size: ファイル名の配列の大きさ
 //char* tag: コマンドライン引数で指定されたタグ
-void getFileName(char* filename, int size, char* tag)
+void getFileName(char* filename, long long unsigned int size, char* tag)
 {
     if(size < 30)
     {
