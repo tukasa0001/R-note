@@ -4,7 +4,7 @@
 #include "SettingsManager.h"
 
 
-void LoadSettings(SettingsData *settings, size_t size)
+void LoadSettings(SettingsData *settings)
 {
     FILE *fp;
     errno_t er1, er2;
@@ -35,7 +35,7 @@ void LoadSettings(SettingsData *settings, size_t size)
     fclose(fp);
 }
 
-void SaveSettings(SettingsData *settings, size_t size)
+void SaveSettings(SettingsData *settings)
 {
     FILE *fp;
     errno_t er1 = fopen_s(&fp, "settings.txt", "w");

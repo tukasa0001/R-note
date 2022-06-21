@@ -10,6 +10,6 @@ typedef struct
     char extension[10];
 } SettingsData;
 
-void LoadSettings(SettingsData *settings, size_t size);
-void SaveSettings(SettingsData *settings, size_t size);
+void LoadSettings(SettingsData *settings);
+void SaveSettings(SettingsData *settings);
 #endif
