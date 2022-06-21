@@ -5,7 +5,6 @@
 argument* initArgs(int argc, char* argv[])
 {
     argument* args;
-    int i = 0;
     bool isTagAssigned = false;
 
     args->operation = Create;
