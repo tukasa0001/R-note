@@ -80,7 +80,6 @@ void SaveSettings(SettingData* AllSettings, size_t size)
     size_t length = size / sizeof(AllSettings[0]);
     for(int i = 0; i < length; i++)
     {
-        if(i != 0) fprintf(fp, "\n");
         switch (AllSettings[i].type)
         {
             case String:
@@ -93,6 +92,7 @@ void SaveSettings(SettingData* AllSettings, size_t size)
                 printf("エラー: 不正なDataType(%d)", AllSettings[i].type);
                 break;
         }
+        fprintf(fp, "\n");
     }
     fclose(fp);
 }
