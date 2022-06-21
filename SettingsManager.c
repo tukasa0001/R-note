@@ -60,5 +60,6 @@ void SaveSettings(SettingsData *settings)
 
 void FixSettings(SettingsData *settings)
 {
-    if(strspn(settings->folder_path, "\\") != "\0") strcat(settings->folder_path, "\\");
+    // Folder_Pathの最後の文字が"\"でない場合に"\"を付け加える
+    if(strcmp(strspn(settings->folder_path, "\\"), "\0") != 0) strcat(settings->folder_path, "\\");
 }
