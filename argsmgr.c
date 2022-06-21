@@ -4,11 +4,11 @@
 
 argument* initArgs(int argc, char* argv[])
 {
-    argument args;
+    argument* args;
     int i = 0;
     bool isTagAssigned = false;
 
-    args.operation = Create;
+    args->operation = Create;
     for (int i = 0; i < argc; i++)
     {
         char* arg = argv[i];
@@ -21,7 +21,7 @@ argument* initArgs(int argc, char* argv[])
             default:
                 if(!isTagAssigned)
                 {// タグとして割りあてる
-                    args.tag = arg;
+                    args->tag = arg;
                 }
                 else
                 {
@@ -32,5 +32,5 @@ argument* initArgs(int argc, char* argv[])
         }
     }
 
-    return &args;
+    return args;
 }
