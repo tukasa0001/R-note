@@ -3,6 +3,11 @@
 #include <stdbool.h>
 #include "ArgsManager.h"
 
+//関数名: initArgs
+//戻り値: void
+//argument* args: 書き込み先の構造体
+//int argc: コマンドライン引数の数
+//char* argv[]: コマンドライン引数
 void initArgs(argument* args, int argc, char* argv[])
 {
     bool isTagAssigned = false;

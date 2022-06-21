@@ -3,6 +3,9 @@
 #include <string.h>
 #include "FileControl.h";
 
+//関数名: CreateFile
+//戻り値: void
+//char* tag: コマンドライン引数で指定されたタグ
 void CreateFile(char* tag)
 {
     char* filename = getFileName(tag);
@@ -12,6 +15,9 @@ void CreateFile(char* tag)
     fclose(file);
 }
 
+//関数名: getFileName
+//戻り値: 作るファイル名
+//char* tag: コマンドライン引数で指定されたタグ
 char* getFileName(char* tag)
 {
     char* filename[32];
