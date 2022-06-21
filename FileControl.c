@@ -8,7 +8,8 @@
 //char* tag: コマンドライン引数で指定されたタグ
 void CreateFile(char* tag)
 {
-    char* filename = getFileName(tag);
+    char filename[30];
+    getFileName(filename, tag);
     FILE* fp;
     errno_t en1;
     en1 = fopen_s(&fp, filename, "w");
@@ -18,14 +19,19 @@ void CreateFile(char* tag)
 }
 
 //関数名: getFileName
-//戻り値: 作るファイル名
+//戻り値: void
+//char* filename: ファイル名の格納先(注: サイズ30以上のchar配列のポインタとすること)
 //char* tag: コマンドライン引数で指定されたタグ
-char* getFileName(char* tag)
+void getFileName(char* filename, char* tag)
 {
-    char filename[30];
+    if(sizeof(filename) < 30)
+    {
+        if(6 <= sizeof(filename)) filename = "INVALID";
+        return;
+    }
     time_t now = time(NULL);
     // 2000.01.01-00.00.00
     strftime(filename, sizeof(filename), "%Y.%m.%d-%H.%M.%S", localtime(&now));
     strcat(filename, ".txt");
-    return filename;
+    printf("filename: %s", tag);
 }

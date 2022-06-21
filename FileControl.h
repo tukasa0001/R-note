@@ -3,5 +3,5 @@
 
 //プロトタイプ宣言
 void CreateFile(char* tag);
-char* getFileName(char* tag);
+void getFileName(char* filename, char* tag);
 #endif
