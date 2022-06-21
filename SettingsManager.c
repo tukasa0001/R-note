@@ -21,6 +21,7 @@ void LoadSettings(SettingsData *settings)
         {// ファイルが作れた場合
             printf("設定ファイルを生成しました。\n");
             fclose(fp);
+            SaveSettings(settings);
             fopen_s(&fp, "settings.txt", "r");
         }
     }
