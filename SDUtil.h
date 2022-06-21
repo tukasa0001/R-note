@@ -13,7 +13,7 @@ typedef struct
 } SettingData;
 
 void SDInit(SettingData *data, char *key, enum SDDataType type, void *value);
-void SDInitStr(SettingData *data, char *key, char *str);
-void SDInitInt(SettingData *data, char *key, int *num);
+void SDInitStr(SettingData *data, char *key, char str);
+void SDInitInt(SettingData *data, char *key, int num);
 SettingData *SDFindIndex(SettingData *data, size_t size, char *key);
 #endif
