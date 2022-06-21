@@ -4,7 +4,7 @@
 #include "SettingsManager.h"
 #include "SDUtil.h"
 
-SettingData* AllSettings[2];
+SettingData AllSettings[2];
 
 void LoadSettings()
 {
@@ -41,5 +41,25 @@ void SaveSettings()
     {
         printf("エラー: 設定ファイルを編集できませんでした。");
         return;
+    }
+    //書き込み処理
+    size_t size = sizeof(AllSettings);
+    for(int i = 0; i < size; i++)
+    {
+        if(i != 0) fprintf(fp, "\n");
+        switch (AllSettings[i].type)
+        {
+            case String:
+                char* value = (char*)AllSettings[i].value;
+                fprintf(fp, "[type-%d]%s = %s", AllSettings[i].type, AllSettings[i].key, value);
+                break;
+            case Int:
+                int* value = (int*)AllSettings[i].value;
+                fprintf(fp, "[type-%d]%s = %d",AllSettings[i].type, AllSettings[i].key, *value);
+                break;
+            default:
+                printf("エラー: 不正なDataType(%d)", AllSettings[i].type);
+                break;
+        }
     }
 }
