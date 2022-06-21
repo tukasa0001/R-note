@@ -22,7 +22,9 @@ void LoadSettings()
         else
         {// ファイルが作れた場合
             printf("設定ファイルを生成しました。\n");
+            fclose(fp);
             SaveSettings();
+            fopen_s(&fp, "settings.txt", "r");
         }
     }
     //読み込み処理
