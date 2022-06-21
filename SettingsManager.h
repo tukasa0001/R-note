@@ -11,6 +11,5 @@ typedef struct
 } SettingsData;
 
 void LoadSettings(SettingsData *settings, size_t size);
-void InitSettings(SettingsData *settings, size_t size);
 void SaveSettings(SettingsData *settings, size_t size);
 #endif
