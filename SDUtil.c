@@ -1,11 +1,21 @@
 #include <stdio.h>
 #include "SDUtil.h"
 
-SettingData SDCreate(char* key, enum SDDataType type, void* value)
+void SDInit(SettingData* data, char* key, enum SDDataType type, void* value)
 {
-    SettingData data;
-    data.key = key;
-    data.type = type;
-    data.value = value;
-    return data;
+    data->key = key;
+    data->type = type;
+    data->value = value;
+}
+void SDInitStr(SettingData* data, char* key, char* str)
+{
+    data->key = key;
+    data->type = String;
+    data->value = str;
+}
+void SDInitInt(SettingData* data, char* key, int* num)
+{
+    data->key = key;
+    data->type = Int;
+    data->value = num;
 }
