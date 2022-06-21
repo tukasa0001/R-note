@@ -34,7 +34,7 @@ void LoadSettings(SettingData* AllSettings, size_t size)
         printf(line);
         char key[28];
         enum SDDataType type;
-        sscanf(line, "[type-%d]%s = %*s", &type, key);
+        sscanf(line, "[type-%d] %s = %*s", &type, key);
 
         SettingData* stg = SDFindIndex(AllSettings, size, key);
         if(stg == NULL)
