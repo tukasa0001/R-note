@@ -57,7 +57,9 @@ void LoadSettings(SettingData* AllSettings, size_t size)
                 break;
         }
         i++;
+        printf("%d行目読み込み完了", i);
     }
+    printf("読み込み完了");
     fclose(fp);
 }
 
