@@ -4,7 +4,7 @@
 #include "SettingsManager.h"
 #include "SDUtil.h"
 
-SettingData* AllSettings[];
+SettingData* AllSettings[2];
 
 void LoadSettings()
 {
@@ -30,6 +30,8 @@ void LoadSettings()
 
 void initSettings()
 {
+    SDInitStr(&AllSettings[0], "FilePath", "C:\\notes\\");
+    SDInitStr(&AllSettings[1], "Extension", "txt");
 }
 void SaveSettings()
 {
