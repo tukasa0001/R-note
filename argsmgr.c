@@ -19,6 +19,7 @@ void initArgs(argument* args, int argc, char* argv[])
                 if(!isTagAssigned)
                 {// タグとして割りあてる
                     args->tag = arg;
+                    isTagAssigned = true;
                 }
                 else
                 {
