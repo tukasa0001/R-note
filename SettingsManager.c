@@ -48,7 +48,7 @@ void SaveSettings(SettingsData *settings)
     errno_t er1 = fopen_s(&fp, "settings.txt", "w");
     if(er1 != 0)
     {
-        printf("エラー: 設定ファイルを編集できませんでした。");
+        printf("エラー: 設定ファイルを編集できませんでした。\n");
         return;
     }
     //書き込み処理
