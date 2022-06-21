@@ -27,7 +27,6 @@ argument* initArgs(int argc, char* argv[])
                 {
                     printf("エラー: 不正な引数: %s\n何かキーを押して終了します", arg);
                     getchar();
-                    exit();
                 }
                 break;
         }
