@@ -7,7 +7,7 @@ enum SDDataType
 };
 typedef struct
 {
-    char* key[10];
+    char* key;
     enum SDDataType type;
     void* value;
 } SettingData;
