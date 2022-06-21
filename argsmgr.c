@@ -4,11 +4,9 @@
 
 argument* initArgs(int argc, char* argv[])
 {
-    argument* args;
+    argument* args = {Create};
     bool isTagAssigned = false;
 
-    args->operation = Create;
-    args->tag = NULL;
     for (int i = 1; i < argc; i++)
     {
         char* arg = argv[i];
