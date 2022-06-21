@@ -8,12 +8,12 @@ SettingData* AllSettings[];
 
 void LoadSettings()
 {
-    FILE* fp;
+    FILE fp;
     errno_t er1, er2;
-    er1 = fopen_s(fp, "settings.txt", "r");
+    er1 = fopen_s(&fp, "settings.txt", "r");
     if(er1 != 0)
     {// ファイルが存在しないか開けない場合
-        er2 = fopen_s(fp, "settings.txt", "w");
+        er2 = fopen_s(&fp, "settings.txt", "w");
         if(er2 != 0)
         {// ファイルが作れない場合
             printf("エラー: 設定ファイルが読み込めませんでした。\n初期設定のまま続行します。\n");
