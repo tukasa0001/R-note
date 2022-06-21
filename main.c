@@ -16,6 +16,10 @@ void main(int argc, char *argv[])
 
     LoadSettings(&settings);
 
+    printf("SettingsData構造体の状態: \n");
+    printf("    Folder_Path: %s\n", settings.folder_path);
+    printf("    extension: %s\n", settings.extension);
+
     printf("argument構造体の状態: \n");
     printf("    operationID: %d\n", (int)args.operation);
     printf("    tag: %s\n", args.tag);
