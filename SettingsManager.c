@@ -46,11 +46,11 @@ void LoadSettings(SettingData* AllSettings, size_t size)
         {
             case String:
                 printf("%s はStringです\n", stg->key);
-                sscanf(line, "[type-%*d]%*s = %s", stg->value);
+                sscanf(line, "[type-%*d] %*s = %s", stg->value);
                 break;
             case Int:
                 printf("%s はIntです\n", stg->key);
-                sscanf(line, "[type-%*d]%*s = %d", stg->value);
+                sscanf(line, "[type-%*d] %*s = %d", stg->value);
                 break;
             default:
                 printf("エラー: 不明なDataType (%d)", type);
@@ -83,10 +83,10 @@ void SaveSettings(SettingData* AllSettings, size_t size)
         switch (AllSettings[i].type)
         {
             case String:
-                fprintf(fp, "[type-%d]%s = %s", AllSettings[i].type, AllSettings[i].key, (char*)AllSettings[i].value);
+                fprintf(fp, "[type-%d] %s = %s", AllSettings[i].type, AllSettings[i].key, (char*)AllSettings[i].value);
                 break;
             case Int:
-                fprintf(fp, "[type-%d]%s = %d",AllSettings[i].type, AllSettings[i].key, (int*)AllSettings[i].value);
+                fprintf(fp, "[type-%d] %s = %d",AllSettings[i].type, AllSettings[i].key, (int*)AllSettings[i].value);
                 break;
             default:
                 printf("エラー: 不正なDataType(%d)", AllSettings[i].type);
