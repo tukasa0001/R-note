@@ -8,7 +8,7 @@ void SDInit(SettingData *data, char *key, enum SDDataType type, void *value)
     data->type = type;
     data->value = value;
 }
-void SDInitStr(SettingData *data, char *key, char str)
+void SDInitStr(SettingData *data, char *key, char str[])
 {
     data->key = key;
     data->type = String;
