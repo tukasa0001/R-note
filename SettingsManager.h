@@ -2,7 +2,6 @@
 #define SETTINGSMGR_H
 //include
 #include <stdio.h>
-#include "SDUtil.h"
 //enum
 //構造体
 

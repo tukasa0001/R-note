@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "SettingsManager.h"
-#include "SDUtil.h"
 
 
 void LoadSettings(SettingData *AllSettings, size_t size)
@@ -22,7 +21,6 @@ void LoadSettings(SettingData *AllSettings, size_t size)
         {// ファイルが作れた場合
             printf("設定ファイルを生成しました。\n");
             fclose(fp);
-            SaveSettings(AllSettings, size);
             fopen_s(&fp, "settings.txt", "r");
         }
     }
@@ -32,31 +30,6 @@ void LoadSettings(SettingData *AllSettings, size_t size)
     while (fgets(line, 128, fp) != NULL)
     {
         printf(line);
-        char key[28];
-        enum SDDataType type;
-        sscanf(line, "[type-%d] %s = %*s", &type, key);
-
-        SettingData *stg = SDFindIndex(AllSettings, size, key);
-        if(stg == NULL)
-        {
-            i++;
-            continue;
-        }
-        switch (type)
-        {
-            case String:
-                printf("%s はStringです\n", stg->key);
-                sscanf(line, "[type-%*d] %*s = %s\n", stg->value);
-                break;
-            case Int:
-                printf("%s はIntです\n", stg->key);
-                sscanf(line, "[type-%*d] %*s = %d\n", stg->value);
-                break;
-            default:
-                printf("エラー: 不明なDataType (%d)", type);
-                break;
-        }
-        printf("val-addr: %p\n", stg->value);
         i++;
     }
     fclose(fp);
@@ -64,8 +37,6 @@ void LoadSettings(SettingData *AllSettings, size_t size)
 
 void InitSettings(SettingData *AllSettings, size_t size)
 {
-    SDInitStr(&AllSettings[0], "FilePath", "-----");
-    SDInitStr(&AllSettings[1], "Extension", "txt");
 }
 
 void SaveSettings(SettingData *AllSettings, size_t size)
@@ -78,22 +49,5 @@ void SaveSettings(SettingData *AllSettings, size_t size)
         return;
     }
     //書き込み処理
-    size_t length = size / sizeof(*AllSettings);
-    for(int i = 0; i < length; i++)
-    {
-        switch ((AllSettings+i)->type)
-        {
-            case String:
-                fprintf(fp, "[type-%d] %s = %s", (AllSettings+i)->type, (AllSettings+i)->key, (char*)(AllSettings+i)->value);
-                break;
-            case Int:
-                fprintf(fp, "[type-%d] %s = %d", (AllSettings+i)->type, (AllSettings+i)->key, (int*)(AllSettings+i)->value);
-                break;
-            default:
-                printf("エラー: 不正なDataType(%d)", (AllSettings+i)->type);
-                break;
-        }
-        fprintf(fp, "\n");
-    }
     fclose(fp);
 }
