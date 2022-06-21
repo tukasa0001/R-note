@@ -8,7 +8,7 @@ SettingData* AllSettings[];
 
 void LoadSettings()
 {
-    FILE fp;
+    FILE* fp;
     errno_t er1, er2;
     er1 = fopen_s(&fp, "settings.txt", "r");
     if(er1 != 0)
