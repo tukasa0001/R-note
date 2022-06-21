@@ -2,7 +2,6 @@
 
 void main()
 {
-
     int a;
     printf("a => ");
     scanf("%d", &a);
