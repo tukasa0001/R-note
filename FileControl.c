@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
-#include "FileControl.h";
+#include "FileControl.h"
 
 //関数名: CreateFile
 //戻り値: void
