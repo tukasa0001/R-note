@@ -21,7 +21,7 @@ void LoadSettings()
         }
         else
         {// ファイルが作れた場合
-            // セーブ処理
+            SaveSettings();
         }
     }
     //読み込み処理
@@ -34,9 +34,21 @@ void LoadSettings()
         sscanf(line, "[type-%d]%s = %*s", &type, key);
 
         SettingData* stg = SDFindIndex(AllSettings, sizeof(AllSettings), key);
+        if(stg == NULL)
+        {
+            i++;
+            continue;
+        }
         switch (type)
         {
             case String:
+                sscanf(line, "[type-%*d]%*s = %s", stg->value);
+                break;
+            case Int:
+                sscanf(line, "[type-%*d]%*s = %d", stg->value);
+                break;
+            default:
+                printf("エラー: 不明なDataType (%d)", type);
                 break;
         }
         i++;
