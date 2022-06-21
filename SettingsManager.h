@@ -2,11 +2,12 @@
 #define SETTINGSMGR_H
 //include
 #include <stdio.h>
+#include "SDUtil.h"
 //enum
 //構造体
 
 
 void LoadSettings();
-void initSettings();
+SettingData* initSettings();
 void SaveSettings();
 #endif
