@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include "argsmgr.h"
 
-void main()
+void main(int argc, char* argv[])
 {
-    int a;
-    printf("a => ");
-    scanf("%d", &a);
-    printf("a = %d", a);
+    argument* args = initArgs(argc, argv);
+
+    printf("argument構造体の状態: \n");
+    printf("    operationID: %d\n", (int)args->operation);
+    printf("    tag: %s\n", args->tag);
 }
