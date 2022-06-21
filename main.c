@@ -9,7 +9,7 @@ void main(int argc, char* argv[])
 {
     initArgs(&args, argc, argv);
 
-    initSettings();
+    InitSettings();
     LoadSettings();
 
     //printf("設定ファイルの状態\n");

@@ -59,7 +59,7 @@ void LoadSettings()
     fclose(fp);
 }
 
-void initSettings()
+void InitSettings()
 {
     SDInitStr(&AllSettings[0], "FilePath", "C:\\notes\\");
     SDInitStr(&AllSettings[1], "Extension", "txt");

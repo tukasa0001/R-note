@@ -7,6 +7,6 @@
 
 
 void LoadSettings();
-void initSettings();
+void InitSettings();
 void SaveSettings();
 #endif
