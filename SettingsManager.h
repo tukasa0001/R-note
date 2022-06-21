@@ -3,11 +3,6 @@
 //include
 #include <stdio.h>
 //enum
-enum DataType
-{
-    String = 0,
-    Int
-};
 //構造体
 
 
