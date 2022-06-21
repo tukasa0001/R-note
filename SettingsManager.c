@@ -50,12 +50,10 @@ void SaveSettings()
         switch (AllSettings[i].type)
         {
             case String:
-                char* value = (char*)AllSettings[i].value;
-                fprintf(fp, "[type-%d]%s = %s", AllSettings[i].type, AllSettings[i].key, value);
+                fprintf(fp, "[type-%d]%s = %s", AllSettings[i].type, AllSettings[i].key, (char*)AllSettings[i].value);
                 break;
             case Int:
-                int* value = (int*)AllSettings[i].value;
-                fprintf(fp, "[type-%d]%s = %d",AllSettings[i].type, AllSettings[i].key, *value);
+                fprintf(fp, "[type-%d]%s = %d",AllSettings[i].type, AllSettings[i].key, (int*)AllSettings[i].value);
                 break;
             default:
                 printf("エラー: 不正なDataType(%d)", AllSettings[i].type);
