@@ -15,8 +15,10 @@ void main(int argc, char *argv[])
     LoadSettings(AllSettings, sizeof(AllSettings));
 
     printf("設定ファイルの状態\n");
-    printf("    保存先dir: %s\n", (char*)SDFindIndex(AllSettings, sizeof(AllSettings), "FilePath")->value);
-    printf("    拡張子: %s\n", (char*)SDFindIndex(AllSettings, sizeof(AllSettings), "Extension")->value);
+    char *dir = (char*)SDFindIndex(AllSettings, sizeof(AllSettings), "FilePath")->value;
+    char *ext = (char*)SDFindIndex(AllSettings, sizeof(AllSettings), "Extension")->value;
+    printf("    保存先dir: %s(%p)\n", dir, dir);
+    printf("    拡張子: %s(%p)\n", ext, ext);
 
     printf("argument構造体の状態: \n");
     printf("    operationID: %d\n", (int)args.operation);
