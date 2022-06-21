@@ -90,4 +90,5 @@ void SaveSettings()
                 break;
         }
     }
+    fclose(fp);
 }
