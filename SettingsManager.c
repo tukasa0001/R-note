@@ -3,7 +3,7 @@
 #include <string.h>
 #include "SettingsManager.h"
 
-SettingsData settings;
+SettingData* AllSettings[];
 
 void LoadSettings()
 {
@@ -29,8 +29,6 @@ void LoadSettings()
 
 void initSettings()
 {
-    *settings.path = "C:\\";
-    *settings.extension = "txt";
 }
 void SaveSettings()
 {
