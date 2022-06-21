@@ -5,7 +5,7 @@ SettingData* SDCreate(char* key, enum SDDataType type, void* value)
 {
     SettingData data;
     data.key = key;
-    data.value = type;
+    data.type = type;
     data.value = value;
     return &data;
 }
