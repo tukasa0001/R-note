@@ -4,9 +4,8 @@
 #include "SettingsManager.h"
 #include "SDUtil.h"
 
-SettingData AllSettings[2];
 
-void LoadSettings()
+void LoadSettings(SettingData* AllSettings, size_t size)
 {
     FILE* fp;
     errno_t er1, er2;
@@ -23,7 +22,7 @@ void LoadSettings()
         {// ファイルが作れた場合
             printf("設定ファイルを生成しました。\n");
             fclose(fp);
-            SaveSettings();
+            SaveSettings(AllSettings, size);
             fopen_s(&fp, "settings.txt", "r");
         }
     }
@@ -32,11 +31,12 @@ void LoadSettings()
     int i = 0;
     while (fgets(line, 128, fp) != NULL)
     {
+        printf(line);
         char key[28];
         enum SDDataType type;
         sscanf(line, "[type-%d]%s = %*s", &type, key);
 
-        SettingData* stg = SDFindIndex(AllSettings, sizeof(AllSettings), key);
+        SettingData* stg = SDFindIndex(AllSettings, size, key);
         if(stg == NULL)
         {
             i++;
@@ -45,9 +45,11 @@ void LoadSettings()
         switch (type)
         {
             case String:
+                printf("%s はStringです\n", stg->key);
                 sscanf(line, "[type-%*d]%*s = %s", stg->value);
                 break;
             case Int:
+                printf("%s はIntです\n", stg->key);
                 sscanf(line, "[type-%*d]%*s = %d", stg->value);
                 break;
             default:
@@ -59,12 +61,13 @@ void LoadSettings()
     fclose(fp);
 }
 
-void InitSettings()
+void InitSettings(SettingData* AllSettings, size_t size)
 {
     SDInitStr(&AllSettings[0], "FilePath", "C:\\notes\\");
     SDInitStr(&AllSettings[1], "Extension", "txt");
 }
-void SaveSettings()
+
+void SaveSettings(SettingData* AllSettings, size_t size)
 {
     FILE* fp;
     errno_t er1 = fopen_s(&fp, "settings.txt", "w");
@@ -74,8 +77,8 @@ void SaveSettings()
         return;
     }
     //書き込み処理
-    size_t size = sizeof(AllSettings) / sizeof(AllSettings[0]);
-    for(int i = 0; i < size; i++)
+    size_t length = size / sizeof(AllSettings[0]);
+    for(int i = 0; i < length; i++)
     {
         if(i != 0) fprintf(fp, "\n");
         switch (AllSettings[i].type)
