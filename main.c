@@ -16,7 +16,7 @@ void main(int argc, char* argv[])
 
     printf("設定ファイルの状態\n");
     printf("    保存先dir: %s\n", (char*)SDFindIndex(AllSettings, sizeof(AllSettings), "FilePath")->value);
-    printf("    拡張子: %s\n", (char*)SDFindIndex(AllSettings, sizeof(AllSettings), "Extention")->value);
+    printf("    拡張子: %s\n", (char*)SDFindIndex(AllSettings, sizeof(AllSettings), "Extension")->value);
 
     printf("argument構造体の状態: \n");
     printf("    operationID: %d\n", (int)args.operation);
