@@ -13,7 +13,6 @@ argument* initArgs(int argc, char* argv[])
     for (int i = 0; i < argc; i++)
     {
         char* arg = argv[i];
-        printf("Switch文直前です。私が戻らなかったら通報してください。");
         switch(*arg)
         {
             case '-':
@@ -32,7 +31,6 @@ argument* initArgs(int argc, char* argv[])
                 }
                 break;
         }
-        printf("無事戻ってこれました！");
     }
 
     return args;
