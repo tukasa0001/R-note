@@ -21,6 +21,7 @@ void LoadSettings()
         }
         else
         {// ファイルが作れた場合
+            printf("設定ファイルを生成しました。\n");
             SaveSettings();
         }
     }
