@@ -60,5 +60,5 @@ void SaveSettings(SettingsData *settings)
 
 void FixSettings(SettingsData *settings)
 {
-    if(strspn(settings->folder_path, '\\') != '\0') strcat(settings->folder_path, "\\");
+    if(strspn(settings->folder_path, "\\") != "\0") strcat(settings->folder_path, "\\");
 }
