@@ -23,7 +23,7 @@ void SDInitInt(SettingData* data, char* key, int* num)
 SettingData* SDFindIndex(SettingData* data, size_t size, char* key)
 {
     size_t length = size / sizeof(*data);
-    for (size_t i = 0; i < size; i++)
+    for (size_t i = 0; i < length; i++)
     {
         if(strcmp((data+i)->key, key)) return (data+i);
     }
