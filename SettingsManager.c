@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "SettingsManager.h"
 
 SettingsData settings;
@@ -23,11 +24,21 @@ void LoadSettings()
         }
     }
     //読み込み処理
-    
+
 }
 
 void initSettings()
 {
     *settings.path = "C:\\";
     *settings.extension = "txt";
+}
+void SaveSettings()
+{
+    FILE* fp;
+    errno_t er1 = fopen_s(fp, "settings.txt", "w");
+    if(er1 != 0)
+    {
+        printf("エラー: 設定ファイルを編集できませんでした。");
+        return;
+    }
 }
