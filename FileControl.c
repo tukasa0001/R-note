@@ -9,10 +9,12 @@
 void CreateFile(char* tag)
 {
     char* filename = getFileName(tag);
-    FILE* file;
-    file = fopen(filename, "w+");
-    fprintf(file, "ファイル作成テスト(%s)", filename);
-    fclose(file);
+    FILE* fp;
+    errno_t en1;
+    en1 = fopen_s(&fp, filename, "w");
+    if(en1 != 0) return;
+    fprintf(fp, "ファイル作成テスト(%s)", filename);
+    fclose(fp);
 }
 
 //関数名: getFileName
