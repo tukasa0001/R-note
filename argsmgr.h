@@ -1,13 +1,13 @@
 #ifndef ARGSMGR_H
 #define ARGSMGR_H
-enum Operation
+typedef enum
 {
     Create = 0
-};
+} Operation;
 
-struct argument
+typedef struct
 {
-    enum Operation operation;
+    Operation operation;
     char* tag;
-};
+} argument;
 #endif
