@@ -11,7 +11,6 @@ void main(int argc, char* argv[])
 
     initSettings();
     LoadSettings();
-    getchar();
 
     printf("argument構造体の状態: \n");
     printf("    operationID: %d\n", (int)args.operation);
