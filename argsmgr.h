@@ -13,5 +13,5 @@ typedef struct
 } argument;
 
 //プロトタイプ宣言
-argument* initArgs(int argc, char* argv[]);
+void initArgs(argument* args, int argc, char* argv[]);
 #endif

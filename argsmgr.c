@@ -2,9 +2,8 @@
 #include <stdbool.h>
 #include "argsmgr.h"
 
-argument* initArgs(int argc, char* argv[])
+void initArgs(argument* args, int argc, char* argv[])
 {
-    argument* args = {Create};
     bool isTagAssigned = false;
 
     for (int i = 1; i < argc; i++)
@@ -29,6 +28,4 @@ argument* initArgs(int argc, char* argv[])
                 break;
         }
     }
-
-    return args;
 }
