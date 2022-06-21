@@ -22,7 +22,7 @@ void CreateFile(char* tag)
 //char* tag: コマンドライン引数で指定されたタグ
 char* getFileName(char* tag)
 {
-    char* filename[32];
+    char filename[30];
     time_t now = time(NULL);
     // 2000.01.01-00.00.00
     strftime(filename, sizeof(filename), "%Y.%m.%d-%H.%M.%S", localtime(&now));
