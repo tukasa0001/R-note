@@ -48,6 +48,7 @@ void LoadSettings(SettingsData *settings)
         }
         i++;
     }
+    EditSettings(settings, false);
     fclose(fp);
 }
 
@@ -88,7 +89,7 @@ void EditSettings(SettingsData *settings, bool editAll)
     {
         char *val = values[i];
         char *msg = messages[i];
-        
+
         if(*(val-1) == 1 || editAll)
         {
             printf(msg);
