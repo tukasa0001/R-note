@@ -80,5 +80,8 @@ void EditSettings(SettingsData *settings, bool editAll)
     {
         char *val = values[i];
         char *msg = messages[i];
+
+        printf(msg);
+        scanf("%s", val);
     }
 }
