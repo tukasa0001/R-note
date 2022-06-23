@@ -12,7 +12,6 @@ void initSettings();
 void main(int argc, char *argv[])
 {
     initArgs(&args, argc, argv);
-    initSettings();
 
     LoadSettings(&settings);
 
@@ -25,10 +24,4 @@ void main(int argc, char *argv[])
     printf("    tag: %s\n", args.tag);
 
     CreateFile(args.tag);
-}
-
-void initSettings()
-{
-    strcpy(settings.folder_path, "C:\\note\\");
-    strcpy(settings.extension, "txt");
 }
