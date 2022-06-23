@@ -67,5 +67,18 @@ void FixSettings(SettingsData *settings)
 
 void EditSettings(SettingsData *settings, bool editAll)
 {
+    char *values[AllSettingsNum] = {
+        settings->folder_path,
+        settings->extension
+    };
+    char *messages[AllSettingsNum] = {
+        "メモの保存先フォルダー",
+        "メモの拡張子"
+    };
 
+    for(int i = 0; i < AllSettingsNum; i++)
+    {
+        char *val = values[i];
+        char *msg = messages[i];
+    }
 }

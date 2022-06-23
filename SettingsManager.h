@@ -5,6 +5,7 @@
 #include <stdbool.h>
 //enum
 //構造体
+#define AllSettingsNum 2
 typedef struct
 {
     char folder_path[200];
