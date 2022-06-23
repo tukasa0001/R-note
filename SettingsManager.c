@@ -37,8 +37,15 @@ void LoadSettings(SettingsData *settings)
         char key[20], val[100];
         sscanf(line, "%s = %s", key, val);
 
-        if(strcmp(key, "Folder_Path") == 0) strcpy(settings->folder_path, val);
-        else if(strcmp(key, "Extension") == 0) strcpy(settings->extension, val);
+        char *targetVal = NULL;
+        if(strcmp(key, "Folder_Path") == 0) targetVal = settings->folder_path;
+        else if(strcmp(key, "Extension") == 0) targetVal = settings->extension;
+
+        if(targetVal != NULL)
+        {
+            strcpy(targetVal, val);
+            *(targetVal - 1) = 1;
+        }
         i++;
     }
     fclose(fp);
