@@ -8,7 +8,9 @@
 #define AllSettingsNum 2
 typedef struct
 {
+    char isRead_FolderPath;
     char folder_path[200];
+    char isRead_extension;
     char extension[10];
 } SettingsData;
 
