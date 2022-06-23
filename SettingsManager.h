@@ -2,6 +2,7 @@
 #define SETTINGSMGR_H
 //include
 #include <stdio.h>
+#include <stdbool.h>
 //enum
 //構造体
 typedef struct
@@ -13,4 +14,5 @@ typedef struct
 void LoadSettings(SettingsData *settings);
 void SaveSettings(SettingsData *settings);
 void FixSettings(SettingsData *settings);
+void EditSettings(SettingsData *settings, bool editAll);
 #endif

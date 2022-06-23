@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "SettingsManager.h"
 
 
@@ -62,4 +63,9 @@ void FixSettings(SettingsData *settings)
 {
     // Folder_Pathの最後の文字が"\"でない場合に"\"を付け加える
     //if(strcmp(strrchr(settings->folder_path, "\\"), "\0") != 0) strcat(settings->folder_path, "\\");
+}
+
+void EditSettings(SettingsData *settings, bool editAll)
+{
+
 }
