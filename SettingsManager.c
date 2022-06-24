@@ -84,16 +84,19 @@ void EditSettings(SettingsData *settings, bool editAll)
         "メモの保存先フォルダー",
         "メモの拡張子"
     };
-
+    bool noChanges = true;
     for(int i = 0; i < AllSettingsNum; i++)
     {
         char *val = values[i];
         char *msg = messages[i];
 
-        if(*(val-1) == 1 || editAll)
+        if(*(val-1) != 1 || editAll)
         {
             printf(msg);
             scanf("%s", val);
+            noChanges = false;
         }
     }
+
+    if(!noChanges) SaveSettings(settings);
 }
