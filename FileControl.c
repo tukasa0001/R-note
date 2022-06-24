@@ -8,13 +8,14 @@
 #include "FileControl.h"
 #include "advio.h"
 
+extern SettingsData settings;
 //関数名: CreateAndOpenFile
 //戻り値: void
 //char *tag: コマンドライン引数で指定されたタグ
-char* CreateAndOpenFile(char *tag, SettingsData *settings)
+char* CreateAndOpenFile(char *tag)
 {
     char path[255];
-    strcpy(path, settings->folder_path);
+    strcpy(path, settings.folder_path);
     static char filename[125];
     getFileName(filename, sizeof(filename) / sizeof(filename[0]), tag);
     strcat(path, filename);
@@ -29,8 +30,8 @@ char* CreateAndOpenFile(char *tag, SettingsData *settings)
         if(changePath)
         {
             printf("メモの保存先フォルダー =>");
-            scanf_s("%s", settings->folder_path, SDGetIsRead(settings->folder_path));
-            SaveSettings(settings);
+            scanf_s("%s", settings.folder_path, SDGetIsRead(settings.folder_path));
+            SaveSettings(&settings);
         }
         exit(1);
         return NULL;
@@ -38,7 +39,7 @@ char* CreateAndOpenFile(char *tag, SettingsData *settings)
     fprintf(fp, "ファイル作成テスト(%s)", path);
     fclose(fp);
 
-    ShellExecute(NULL, "open", settings->EditorPath, path, NULL, SW_RESTORE);
+    ShellExecute(NULL, "open", settings.EditorPath, path, NULL, SW_RESTORE);
     return filename;
 }
 
