@@ -25,6 +25,5 @@ void main(int argc, char *argv[])
     printf("    tag: %s\n", args.tag);
 #endif
 
-    char *filename = CreateAndOpenFile(args.tag, &settings);
-
+    char *filename = CreateAndOpenFile(args.tag);
 }
