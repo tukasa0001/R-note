@@ -9,12 +9,12 @@
 typedef struct
 {
     #define FolderPathLen 200
-    char length_FolderPath;
+    unsigned char length_FolderPath;
     char isRead_FolderPath;
     char folder_path[FolderPathLen];
 
     #define ExtensionLen 10
-    char length_extension;
+    unsigned char length_extension;
     char isRead_extension;
     char extension[ExtensionLen];
 } SettingsData;
