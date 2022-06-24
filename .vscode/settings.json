@@ -2,6 +2,7 @@
     "files.associations": {
         "stdio.h": "c",
         "argsmanager.h": "c",
-        "filecontrol.h": "c"
+        "filecontrol.h": "c",
+        "windows.h": "c"
     }
 }

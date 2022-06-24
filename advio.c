@@ -37,7 +37,7 @@ bool scanYesOrNo(char *msg)
     }
 }
 
-void SetTextColor(Color color)
+void ADVSetTextColor(Color color)
 {
     printf("\e[3%dm", color);
 }

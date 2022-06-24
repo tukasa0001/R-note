@@ -14,7 +14,7 @@ typedef enum
 } Color;
 //プロトタイプ宣言
 bool scanYesOrNo(char *msg);
-void SetTextColor(Color color);
+void ADVSetTextColor(Color color);
 void SetBGColor(Color color);
 void ResetColor();
 #endif
