@@ -118,6 +118,7 @@ void EditSettings(SettingsData *settings, bool editAll)
             printf(msg);
             printf(" >");
             fgets(val, SDGetLength(val), stdin);
+            if(strlen(val) <= 1) strcpy(val, defaultValues[i]);
             noChanges = false;
         }
     }
