@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
 #include <string.h>
@@ -34,6 +35,10 @@ void CreateAndOpenFile(char *tag, SettingsData *settings)
     }
     fprintf(fp, "ファイル作成テスト(%s)", path);
     fclose(fp);
+
+    char cmd[384];
+    sprintf_s(cmd, 384, "%s %s", settings->EditorPath, path);
+    system(cmd);
 }
 
 //関数名: getFileName
