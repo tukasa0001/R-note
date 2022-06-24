@@ -22,8 +22,8 @@ void CreateFile(char *tag, SettingsData *settings)
     en1 = fopen_s(&fp, path, "w");
     if(en1 != 0)
     {
-        printf("エラー: ファイルを作成できませんでした。(path: %s)\n保存先フォルダパスを変更しますか?", path);
-        bool changePath = scanYesOrNo();
+        printf("エラー: ファイルを作成できませんでした。(path: %s)\n", path);
+        bool changePath = scanYesOrNo("保存先フォルダパスを変更しますか? >");
         if(changePath)
         {
             printf("メモの保存先フォルダー =>");
