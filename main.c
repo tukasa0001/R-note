@@ -8,8 +8,6 @@
 argument args;
 SettingsData settings;
 
-void initSettings();
-
 void main(int argc, char *argv[])
 {
     initArgs(&args, argc, argv);
