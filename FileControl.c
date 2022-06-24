@@ -12,9 +12,9 @@
 //char *tag: コマンドライン引数で指定されたタグ
 void CreateAndOpenFile(char *tag, SettingsData *settings)
 {
-    char path[284];
+    char path[255];
     strcpy(path, settings->folder_path);
-    char filename[84];
+    char filename[125];
     getFileName(filename, sizeof(filename) / sizeof(filename[0]), tag);
     strcat(path, filename);
 

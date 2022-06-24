@@ -8,7 +8,7 @@
 #define AllSettingsNum 3
 typedef struct
 {
-    #define FolderPathLen 200
+    #define FolderPathLen 130
     unsigned char length_FolderPath;
     char isRead_FolderPath;
     char folder_path[FolderPathLen];
