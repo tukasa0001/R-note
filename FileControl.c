@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
+#include "SettingsManager.h"
 #include "FileControl.h"
 
 //関数名: CreateFile
 //戻り値: void
 //char *tag: コマンドライン引数で指定されたタグ
-void CreateFile(char *tag)
+void CreateFile(char *tag, SettingsData *settings)
 {
     char filename[84];
     getFileName(filename, sizeof(filename) / sizeof(filename[0]), tag);
