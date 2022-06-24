@@ -39,9 +39,13 @@ bool scanYesOrNo(char *msg)
 
 void SetTextColor(Color color)
 {
-    printf("\n[3%dm", color);
+    printf("\e[3%dm", color);
 }
 void SetBGColor(Color color)
 {
-    printf("\n[4%dm", color);
+    printf("\e[4%dm", color);
+}
+void ResetColor()
+{
+    printf("\e[0m");
 }
