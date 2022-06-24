@@ -48,9 +48,9 @@ void LoadSettings(SettingsData *settings)
         }
         i++;
     }
+    fclose(fp);
     FixSettings(settings, false);
     EditSettings(settings, false);
-    fclose(fp);
 }
 
 void SaveSettings(SettingsData *settings)
