@@ -115,6 +115,7 @@ void EditSettings(SettingsData *settings, bool editAll)
 
         if(*(val-1) != 1 || editAll)
         {
+            if(noChanges && !editAll) printf("\e[31m未割当の設定が見つかりました。\e[0m\n");
             printf("デフォルト値: \"%s\"\n", defaultValues[i]);
             printf(msg);
             printf(" >");
