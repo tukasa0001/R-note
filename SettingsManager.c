@@ -102,6 +102,11 @@ void EditSettings(SettingsData *settings, bool editAll)
         "メモの拡張子",
         "テキストエディターのパス"
     };
+    char *defaultValues[AllSettingsNum] = {
+        ".\\",
+        "txt",
+        "notepad.exe"
+    };
     bool noChanges = true;
     for(int i = 0; i < AllSettingsNum; i++)
     {
@@ -112,7 +117,7 @@ void EditSettings(SettingsData *settings, bool editAll)
         {
             printf(msg);
             printf(" >");
-            scanf_s("%s", val, SDGetLength(val));
+            fgets(val, SDGetLength(val), stdin);
             noChanges = false;
         }
     }
