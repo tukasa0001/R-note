@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include <time.h>
 #include <string.h>
 #include "SettingsManager.h"
 #include "FileControl.h"
+#include "advio.h"
 
 //関数名: CreateFile
 //戻り値: void
@@ -20,7 +22,13 @@ void CreateFile(char *tag, SettingsData *settings)
     en1 = fopen_s(&fp, path, "w");
     if(en1 != 0)
     {
-        printf("エラー: ファイルを作成できませんでした。(path: %s)\n", path);
+        printf("エラー: ファイルを作成できませんでした。(path: %s)\n保存先フォルダパスを変更しますか?", path);
+        bool changePath = scanYesOrNo();
+        if(changePath)
+        {
+            printf("メモの保存先フォルダー =>");
+            scanf("%s", settings->folder_path);
+        }
         return;
     }
     fprintf(fp, "ファイル作成テスト(%s)", path);
