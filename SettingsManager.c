@@ -92,11 +92,13 @@ void EditSettings(SettingsData *settings, bool editAll)
 {
     char *values[AllSettingsNum] = {
         settings->folder_path,
-        settings->extension
+        settings->extension,
+        settings->EditorPath
     };
     char *messages[AllSettingsNum] = {
         "メモの保存先フォルダー",
-        "メモの拡張子"
+        "メモの拡張子",
+        "テキストエディターのパス"
     };
     bool noChanges = true;
     for(int i = 0; i < AllSettingsNum; i++)

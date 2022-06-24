@@ -5,7 +5,7 @@
 #include <stdbool.h>
 //enum
 //構造体
-#define AllSettingsNum 2
+#define AllSettingsNum 3
 typedef struct
 {
     #define FolderPathLen 200
