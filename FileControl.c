@@ -28,6 +28,7 @@ void CreateFile(char *tag, SettingsData *settings)
         {
             printf("メモの保存先フォルダー =>");
             scanf("%s", settings->folder_path);
+            SaveSettings(settings);
         }
         return;
     }
