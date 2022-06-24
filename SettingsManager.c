@@ -15,7 +15,7 @@ void LoadSettings(SettingsData *settings)
         er2 = fopen_s(&fp, "settings.txt", "w");
         if(er2 != 0)
         {// ファイルが作れない場合
-            printf("エラー: 設定ファイルが読み込めませんでした。\n終了します\n");
+            printf("\e[41mエラー: 設定ファイルが読み込めませんでした。\e[0m\n終了します\n");
             exit(1);
             return;
         }
