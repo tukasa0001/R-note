@@ -66,3 +66,29 @@ void getFileName(char *filename, long long unsigned int size, char *tag)
     }
     else snprintf(filename, size, "%s.%s", timestamp, "txt");
 }
+
+void RemoveEmptyFiles(char *excludeFilename)
+{
+    char searchPath[142];
+    strcpy(searchPath, settings.folder_path);
+    strcat(searchPath, "*.");
+    strcat(searchPath, settings.extension);
+
+    HANDLE fHandle;
+    WIN32_FIND_DATA fd;
+    fHandle = FindFirstFile(searchPath, &fd);
+    if(fHandle == INVALID_HANDLE_VALUE) return;
+    char removePath[255];
+    do
+    {
+        if(fd.nFileSizeLow <= 0 && strcmp(fd.cFileName, excludeFilename) != 0)
+        {
+            strcpy(removePath, settings.folder_path);
+            strcat(removePath, fd.cFileName);
+            if(!DeleteFile(removePath))
+            {
+                printf("警告: 空のファイルファイル\"%s\"の削除に失敗しました。\n", fd.cFileName);
+            }
+        }
+    } while (FindNextFile(fHandle, &fd));
+}
