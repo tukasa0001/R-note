@@ -40,6 +40,7 @@ void LoadSettings(SettingsData *settings)
         char *targetVal = NULL;
         if(strcmp(key, "Folder_Path") == 0) targetVal = settings->folder_path;
         else if(strcmp(key, "Extension") == 0) targetVal = settings->extension;
+        else if(strcmp(key, "EditorPath") == 0) targetVal = settings->EditorPath;
 
         if(targetVal != NULL)
         {
@@ -66,6 +67,7 @@ void SaveSettings(SettingsData *settings)
     //書き込み処理
     fprintf(fp, "Folder_Path = %s\n", settings->folder_path);
     fprintf(fp, "Extension = %s\n", settings->extension);
+    fprintf(fp, "EditorPath = %s\n", settings->EditorPath);
     fclose(fp);
 }
 
