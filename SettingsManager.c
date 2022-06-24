@@ -73,7 +73,7 @@ bool FixSettings(SettingsData *settings, bool DoNotRewrite)
 {
     bool doRewrite = false;
     // Folder_Pathの最後の文字が"\"でない場合に"\"を付け加える
-    char LastOfFolderPath = settings->folder_path[strlen(settings->folder_path)];
+    char LastOfFolderPath = settings->folder_path[strlen(settings->folder_path) - 1];
     if(LastOfFolderPath != '\\')
     {
         strcat(settings->folder_path, "\\");
