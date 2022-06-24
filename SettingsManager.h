@@ -16,6 +16,6 @@ typedef struct
 
 void LoadSettings(SettingsData *settings);
 void SaveSettings(SettingsData *settings);
-void FixSettings(SettingsData *settings);
+bool FixSettings(SettingsData *settings, bool DoNotRewrite);
 void EditSettings(SettingsData *settings, bool editAll);
 #endif

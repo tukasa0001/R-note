@@ -61,17 +61,30 @@ void SaveSettings(SettingsData *settings)
         printf("エラー: 設定ファイルを編集できませんでした。\n");
         return;
     }
-    FixSettings(settings);
+    FixSettings(settings, true);
     //書き込み処理
     fprintf(fp, "Folder_Path = %s\n", settings->folder_path);
     fprintf(fp, "Extension = %s\n", settings->extension);
     fclose(fp);
 }
 
-void FixSettings(SettingsData *settings)
+bool FixSettings(SettingsData *settings, bool DoNotRewrite)
 {
+    bool doRewrite = false;
     // Folder_Pathの最後の文字が"\"でない場合に"\"を付け加える
-    //if(strcmp(strrchr(settings->folder_path, "\\"), "\0") != 0) strcat(settings->folder_path, "\\");
+    char LastOfFolderPath = settings->folder_path[strlen(settings->folder_path)];
+    if(LastOfFolderPath != '\\')
+    {
+        strcat(settings->folder_path, "\\");
+        doRewrite = true;
+    }
+
+    if(!DoNotRewrite && doRewrite)
+    {
+        SaveSettings(settings);
+    }
+
+    return doRewrite;
 }
 
 void EditSettings(SettingsData *settings, bool editAll)
