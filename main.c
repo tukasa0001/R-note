@@ -15,6 +15,7 @@ void main(int argc, char *argv[])
     initArgs(&args, argc, argv);
 
     LoadSettings(&settings);
+
 #ifdef debug
     printf("SettingsData構造体の状態: \n");
     printf("    Folder_Path: %s\n", settings.folder_path);
@@ -24,5 +25,6 @@ void main(int argc, char *argv[])
     printf("    operationID: %d\n", (int)args.operation);
     printf("    tag: %s\n", args.tag);
 #endif
+
     CreateFile(args.tag);
 }
