@@ -3,11 +3,12 @@
 #include <string.h>
 #include "advio.h"
 
-bool scanYesOrNo()
+bool scanYesOrNo(char *msg)
 {
     char str[10];
     while(true)
     {
+        printf(msg);
         scanf_s("%s", str, 10);
         //YES判定
         if(strcmp(str, "Yes") +

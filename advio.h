@@ -2,5 +2,5 @@
 #define ADVIO_h
 
 //プロトタイプ宣言
-bool scanYesOrNo();
+bool scanYesOrNo(char *msg);
 #endif
