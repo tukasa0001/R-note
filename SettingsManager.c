@@ -115,6 +115,7 @@ void EditSettings(SettingsData *settings, bool editAll)
 
         if(*(val-1) != 1 || editAll)
         {
+            printf("デフォルト値: \"%s\"", defaultValues[i]);
             printf(msg);
             printf(" >");
             fgets(val, SDGetLength(val), stdin);
