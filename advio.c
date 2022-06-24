@@ -36,3 +36,12 @@ bool scanYesOrNo(char *msg)
         ) return false;
     }
 }
+
+void SetTextColor(Color color)
+{
+    printf("\n[3%dm", color);
+}
+void SetBGColor(Color color)
+{
+    printf("\n[4%dm", color);
+}
