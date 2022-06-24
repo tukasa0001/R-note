@@ -109,6 +109,7 @@ void EditSettings(SettingsData *settings, bool editAll)
         if(*(val-1) != 1 || editAll)
         {
             printf(msg);
+            printf(" >");
             scanf_s("%s", val, SDGetLength(val));
             noChanges = false;
         }
