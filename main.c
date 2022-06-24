@@ -12,6 +12,7 @@ void main(int argc, char *argv[])
 {
     initArgs(&args, argc, argv);
 
+    InitSettings(&settings);
     LoadSettings(&settings);
 
 #ifdef debug

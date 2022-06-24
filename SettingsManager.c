@@ -114,3 +114,9 @@ void EditSettings(SettingsData *settings, bool editAll)
 
     if(!noChanges) SaveSettings(settings);
 }
+
+void InitSettings(SettingsData *settings)
+{
+    settings->length_FolderPath = FolderPathLen;
+    settings->length_extension = ExtensionLen;
+}

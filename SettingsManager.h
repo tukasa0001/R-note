@@ -8,15 +8,18 @@
 #define AllSettingsNum 2
 typedef struct
 {
+    #define FolderPathLen 200
     char length_FolderPath;
     char isRead_FolderPath;
-    char folder_path[200];
-    
+    char folder_path[FolderPathLen];
+
+    #define ExtensionLen 10
     char length_extension;
     char isRead_extension;
-    char extension[10];
+    char extension[ExtensionLen];
 } SettingsData;
 
+void InitSettings(SettingsData *settings);
 void LoadSettings(SettingsData *settings);
 void SaveSettings(SettingsData *settings);
 bool FixSettings(SettingsData *settings, bool DoNotRewrite);
