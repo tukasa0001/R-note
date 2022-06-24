@@ -119,6 +119,7 @@ void InitSettings(SettingsData *settings)
 {
     settings->length_FolderPath = FolderPathLen;
     settings->length_extension = ExtensionLen;
+    settings->length_EditorPath = EditorPathLen;
 }
 
 

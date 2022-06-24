@@ -17,6 +17,11 @@ typedef struct
     unsigned char length_extension;
     char isRead_extension;
     char extension[ExtensionLen];
+
+    #define EditorPathLen 255
+    unsigned char length_EditorPath;
+    char isRead_EditorPath;
+    char EditorPath[EditorPathLen];
 } SettingsData;
 
 void InitSettings(SettingsData *settings);
