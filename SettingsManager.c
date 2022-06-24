@@ -120,3 +120,15 @@ void InitSettings(SettingsData *settings)
     settings->length_FolderPath = FolderPathLen;
     settings->length_extension = ExtensionLen;
 }
+
+
+bool SDGetIsRead(char *target)
+{
+    if(*(target - 1) == 1) return true;
+    else return false;
+}
+
+unsigned char SDGetLength(char* target)
+{
+    return *(unsigned char*)(target - 2);
+}

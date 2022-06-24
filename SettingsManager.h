@@ -24,4 +24,7 @@ void LoadSettings(SettingsData *settings);
 void SaveSettings(SettingsData *settings);
 bool FixSettings(SettingsData *settings, bool DoNotRewrite);
 void EditSettings(SettingsData *settings, bool editAll);
+
+bool SDGetIsRead(char *target);
+unsigned char SDGetLength(char* target);
 #endif
