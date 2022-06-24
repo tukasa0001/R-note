@@ -18,7 +18,11 @@ void CreateFile(char *tag, SettingsData *settings)
     FILE *fp;
     errno_t en1;
     en1 = fopen_s(&fp, path, "w");
-    if(en1 != 0) return;
+    if(en1 != 0)
+    {
+        printf("エラー: ファイルを作成できませんでした。(path: %s)\n", path);
+        return;
+    }
     fprintf(fp, "ファイル作成テスト(%s)", path);
     fclose(fp);
 }
