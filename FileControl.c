@@ -11,11 +11,11 @@
 //関数名: CreateAndOpenFile
 //戻り値: void
 //char *tag: コマンドライン引数で指定されたタグ
-void CreateAndOpenFile(char *tag, SettingsData *settings)
+char* CreateAndOpenFile(char *tag, SettingsData *settings)
 {
     char path[255];
     strcpy(path, settings->folder_path);
-    char filename[125];
+    static char filename[125];
     getFileName(filename, sizeof(filename) / sizeof(filename[0]), tag);
     strcat(path, filename);
 
@@ -32,12 +32,14 @@ void CreateAndOpenFile(char *tag, SettingsData *settings)
             scanf_s("%s", settings->folder_path, SDGetIsRead(settings->folder_path));
             SaveSettings(settings);
         }
-        return;
+        exit(1);
+        return NULL;
     }
     fprintf(fp, "ファイル作成テスト(%s)", path);
     fclose(fp);
 
     ShellExecute(NULL, "open", settings->EditorPath, path, NULL, SW_RESTORE);
+    return filename;
 }
 
 //関数名: getFileName
