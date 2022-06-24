@@ -118,7 +118,11 @@ void EditSettings(SettingsData *settings, bool editAll)
             printf(msg);
             printf(" >");
             fgets(val, SDGetLength(val), stdin);
-            if(strlen(val) <= 1) strcpy(val, defaultValues[i]);
+            if(strlen(val) <= 1) 
+            {
+                strcpy(val, defaultValues[i]);
+                printf("入力がなかったため、デフォルト値\"%s\"を適用しました。\n", defaultValues[i]);
+            }
             noChanges = false;
         }
     }
