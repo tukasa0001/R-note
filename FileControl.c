@@ -27,7 +27,7 @@ void CreateFile(char *tag, SettingsData *settings)
         if(changePath)
         {
             printf("メモの保存先フォルダー =>");
-            scanf("%s", settings->folder_path);
+            scanf_s("%s", settings->folder_path, SDGetIsRead(settings->folder_path));
             SaveSettings(settings);
         }
         return;

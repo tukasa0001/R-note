@@ -35,7 +35,7 @@ void LoadSettings(SettingsData *settings)
         printf(line);
 
         char key[20], val[100];
-        sscanf(line, "%s = %s", key, val);
+        sscanf_s(line, "%s = %s", key,20, val,100);
 
         char *targetVal = NULL;
         if(strcmp(key, "Folder_Path") == 0) targetVal = settings->folder_path;
@@ -107,7 +107,7 @@ void EditSettings(SettingsData *settings, bool editAll)
         if(*(val-1) != 1 || editAll)
         {
             printf(msg);
-            scanf("%s", val);
+            scanf_s("%s", val, SDGetLength(val));
             noChanges = false;
         }
     }
