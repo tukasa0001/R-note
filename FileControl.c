@@ -49,6 +49,4 @@ void getFileName(char *filename, long long unsigned int size, char *tag)
         snprintf(filename, size, "%s-[%s].%s", timestamp, tag, "txt");
     }
     else snprintf(filename, size, "%s.%s", timestamp, "txt");
-
-    printf("filename: %s", filename);
 }
