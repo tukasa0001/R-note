@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "argsmanager.h": "c"
+        "argsmanager.h": "c",
+        "filecontrol.h": "c"
     }
 }

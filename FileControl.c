@@ -6,10 +6,10 @@
 #include "FileControl.h"
 #include "advio.h"
 
-//関数名: CreateFile
+//関数名: CreateAndOpenFile
 //戻り値: void
 //char *tag: コマンドライン引数で指定されたタグ
-void CreateFile(char *tag, SettingsData *settings)
+void CreateAndOpenFile(char *tag, SettingsData *settings)
 {
     char path[284];
     strcpy(path, settings->folder_path);
