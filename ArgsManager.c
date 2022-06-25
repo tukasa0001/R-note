@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "ArgsManager.h"
+#include "advio.h"
 
 //関数名: initArgs
 //戻り値: void
@@ -19,8 +20,21 @@ void initArgs(argument *args, int argc, char *argv[])
         switch(*arg)
         {
             case '-':
-                // プロパティを表す予定だが未実装
-                printf("警告: プロパティは未実装です");
+                bool isSuccess;
+                if(arg[1] == 1)
+                {
+                    char *str = strLeftShift(arg, 2); //"--prop" => "prop"
+                    isSuccess = CheckLongProperty(str, args);
+                } else {
+                    char *str = strLeftShift(arg, 1); //"-p" => "p"
+                    isSuccess = CheckShortProperty(str, args);
+                }
+                if(isSuccess)
+                {
+
+                } else {
+                    
+                }
                 break;
             default:
                 if(!isTagAssigned)
