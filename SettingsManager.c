@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "SettingsManager.h"
+#include "advio.h"
 
 
 void LoadSettings(SettingsData *settings)
@@ -42,7 +43,11 @@ void LoadSettings(SettingsData *settings)
         if(strcmp(key, "Folder_Path") == 0) targetVal = settings->folder_path;
         else if(strcmp(key, "Extension") == 0) targetVal = settings->extension;
         else if(strcmp(key, "EditorPath") == 0) targetVal = settings->EditorPath;
-        else if(strcmp(key, "DeleteEmptyFiles") == 0) targetVal = settings->DeleteEmptyFiles;
+        else if(strcmp(key, "DeleteEmptyFiles") == 0)
+        {
+            if(scanYesOrNo(val) == Invalid) targetVal = NULL;
+            else targetVal = settings->DeleteEmptyFiles;
+        }
 
         if(targetVal != NULL)
         {
@@ -89,6 +94,9 @@ bool FixSettings(SettingsData *settings, bool DoNotRewrite)
     {
         SaveSettings(settings);
     }
+    
+    YesOrNo deleteEmptyFiles = scanYesOrNo(settings->DeleteEmptyFiles);
+    if(deleteEmptyFiles == Invalid) strcpy(settings->DeleteEmptyFiles, "TRUE");
 
     return doRewrite;
 }
