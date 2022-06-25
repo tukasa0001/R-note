@@ -12,6 +12,12 @@ typedef enum
     Cyan,
     White
 } Color;
+typedef enum
+{
+    Invalid = -1,
+    No = 0,
+    Yes = 1
+} YesOrNo;
 //プロトタイプ宣言
 bool scanYesOrNo(char *msg);
 void ADVSetTextColor(Color color);
