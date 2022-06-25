@@ -91,4 +91,6 @@ void RemoveEmptyFiles(char *excludeFilename)
             }
         }
     } while (FindNextFile(fHandle, &fd));
+
+    FindClose(fHandle);
 }
