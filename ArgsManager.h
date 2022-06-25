@@ -11,7 +11,15 @@ typedef struct
     Operation operation;
     char *tag;
 } argument;
+typedef struct
+{
+    char *name;
+    void (*onPropSelect)(argument*);
+} PropertyData;
+
 
 //プロトタイプ宣言
 void initArgs(argument *args, int argc, char *argv[]);
+void CheckShortProperty(char *prop);
+void CheckLongProperty(char *prop);
 #endif
