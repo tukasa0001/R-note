@@ -71,5 +71,4 @@ bool CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argumen
 
 void Prop_Wipe(argument *args)
 {
-    return true;
 }
