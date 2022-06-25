@@ -3,6 +3,7 @@
 #include "ArgsManager.h"
 #include "FileControl.h"
 #include "SettingsManager.h"
+#include "advio.h"
 #define debug
 
 argument args;
@@ -26,5 +27,6 @@ void main(int argc, char *argv[])
 #endif
 
     char *filename = CreateAndOpenFile(args.tag);
-    RemoveEmptyFiles(filename);
+    if(scanYesOrNo(settings.DeleteEmptyFiles) == Yes)
+        RemoveEmptyFiles(filename);
 }
