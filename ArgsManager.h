@@ -1,5 +1,6 @@
 #ifndef ARGSMGR_H
 #define ARGSMGR_H
+#include <stdbool.h>
 //構造体・列挙型など
 typedef enum
 {
@@ -20,9 +21,9 @@ typedef struct
 
 //プロトタイプ宣言
 void initArgs(argument *args, int argc, char *argv[]);
-void CheckShortProperty(char *prop, argument *args);
-void CheckLongProperty(char *prop, argument *args);
-void CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argument *args);
+bool CheckShortProperty(char *prop, argument *args);
+bool CheckLongProperty(char *prop, argument *args);
+bool CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argument *args);
 
 void Prop_Wipe(argument *args);
 #endif

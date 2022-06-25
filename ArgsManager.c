@@ -45,17 +45,17 @@ static PropertyData LongPropertyData[] = {
     {"wipe", Prop_Wipe}
 };
 
-void CheckShortProperty(char *prop, argument *args)
+bool CheckShortProperty(char *prop, argument *args)
 {
     size_t length = sizeof(ShortPropertyData) / sizeof(PropertyData);
-    CheckProperty(ShortPropertyData, length, prop, args);
+    return CheckProperty(ShortPropertyData, length, prop, args);
 }
-void CheckLongProperty(char *prop, argument *args)
+bool CheckLongProperty(char *prop, argument *args)
 {
     size_t length = sizeof(LongPropertyData) / sizeof(PropertyData);
-    CheckProperty(LongPropertyData, length, prop, args);
+    return CheckProperty(LongPropertyData, length, prop, args);
 }
-void CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argument *args)
+bool CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argument *args)
 {
     for(int i = 0; i < length; i++)
     {
@@ -63,10 +63,13 @@ void CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argumen
         if(strcmp(propData.name, prop) == 0)
         {
             propData.onPropSelect(args);
+            return true;
         }
     }
+    return false;
 }
 
 void Prop_Wipe(argument *args)
 {
+    return true;
 }
