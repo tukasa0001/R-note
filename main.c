@@ -27,6 +27,6 @@ void main(int argc, char *argv[])
 #endif
 
     char *filename = CreateAndOpenFile(args.tag);
-    if(scanYesOrNo(settings.DeleteEmptyFiles) == Yes)
+    if(sscanYesOrNo(settings.DeleteEmptyFiles) == Yes)
         RemoveEmptyFiles(filename);
 }

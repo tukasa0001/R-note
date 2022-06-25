@@ -21,7 +21,7 @@ bool scanYesOrNo(char *msg)
     }
 }
 
-YesOrNo scanYesOrNo(char *input)
+YesOrNo sscanYesOrNo(char *input)
 {
     //YES判定
     if(strcmp(input, "Yes") == 0 ||
