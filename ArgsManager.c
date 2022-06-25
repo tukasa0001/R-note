@@ -17,23 +17,17 @@ void initArgs(argument *args, int argc, char *argv[])
     for (int i = 1; i < argc; i++)
     {
         char *arg = argv[i];
+        bool isError;
         switch(*arg)
         {
             case '-':
-                bool isSuccess;
                 if(arg[1] == 1)
                 {
                     char *str = strLeftShift(arg, 2); //"--prop" => "prop"
-                    isSuccess = CheckLongProperty(str, args);
+                    isError = !CheckLongProperty(str, args);
                 } else {
                     char *str = strLeftShift(arg, 1); //"-p" => "p"
-                    isSuccess = CheckShortProperty(str, args);
-                }
-                if(isSuccess)
-                {
-
-                } else {
-                    
+                    isError = !CheckShortProperty(str, args);
                 }
                 break;
             default:
@@ -42,13 +36,14 @@ void initArgs(argument *args, int argc, char *argv[])
                     args->tag = arg;
                     isTagAssigned = true;
                 }
-                else
-                {
-                    printf("エラー: 不正な引数: %s\n何かキーを押して終了します", arg);
-                    getchar();
-                    exit(1);
-                }
+                else isError = true;
                 break;
+        }
+        if(isError)
+        {
+            printf("エラー: 不正な引数: %s\n何かキーを押して終了します", arg);
+            getchar();
+            exit(1);
         }
     }
 }
