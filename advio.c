@@ -10,7 +10,7 @@ bool scanYesOrNo(char *msg)
     {
         printf(msg);
         scanf_s("%s", str, 10);
-        switch (_CheckYesOrNo(str))
+        switch (CheckYesOrNo(str))
         {
             case Yes: return true;
             case No: return false;
@@ -21,7 +21,7 @@ bool scanYesOrNo(char *msg)
     }
 }
 
-YesOrNo sscanYesOrNo(char *input)
+YesOrNo CheckYesOrNo(char *input)
 {
     //YES判定
     if(strcmp(input, "Yes") == 0 ||

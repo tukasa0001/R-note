@@ -45,7 +45,7 @@ void LoadSettings(SettingsData *settings)
         else if(strcmp(key, "EditorPath") == 0) targetVal = settings->EditorPath;
         else if(strcmp(key, "DeleteEmptyFiles") == 0)
         {
-            if(sscanYesOrNo(val) == Invalid) targetVal = NULL;
+            if(CheckYesOrNo(val) == Invalid) targetVal = NULL;
             else targetVal = settings->DeleteEmptyFiles;
         }
 
@@ -95,7 +95,7 @@ bool FixSettings(SettingsData *settings, bool DoNotRewrite)
         SaveSettings(settings);
     }
     
-    YesOrNo deleteEmptyFiles = sscanYesOrNo(settings->DeleteEmptyFiles);
+    YesOrNo deleteEmptyFiles = CheckYesOrNo(settings->DeleteEmptyFiles);
     if(deleteEmptyFiles == Invalid) strcpy(settings->DeleteEmptyFiles, "TRUE");
 
     return doRewrite;
