@@ -22,4 +22,6 @@ typedef struct
 void initArgs(argument *args, int argc, char *argv[]);
 void CheckShortProperty(char *prop);
 void CheckLongProperty(char *prop);
+
+void Prop_Wipe(argument *args);
 #endif

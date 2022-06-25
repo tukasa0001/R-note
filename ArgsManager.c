@@ -37,12 +37,23 @@ void initArgs(argument *args, int argc, char *argv[])
         }
     }
 }
+static PropertyData ShortPropertyData[] = {
+    {"w", Prop_Wipe}
+};
+static PropertyData LongPropertyData[] = {
+    {"wipe", Prop_Wipe}
+};
 
 void CheckShortProperty(char *prop)
 {
 
 }
 void CheckLongProperty(char *prop)
+{
+
+}
+
+void Prop_Wipe(argument *args)
 {
 
 }
