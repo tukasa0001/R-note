@@ -20,8 +20,9 @@ typedef struct
 
 //プロトタイプ宣言
 void initArgs(argument *args, int argc, char *argv[]);
-void CheckShortProperty(char *prop);
-void CheckLongProperty(char *prop);
+void CheckShortProperty(char *prop, argument *args);
+void CheckLongProperty(char *prop, argument *args);
+void CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argument *args);
 
 void Prop_Wipe(argument *args);
 #endif

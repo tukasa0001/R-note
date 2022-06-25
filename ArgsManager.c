@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "ArgsManager.h"
 
 //関数名: initArgs
@@ -44,16 +45,28 @@ static PropertyData LongPropertyData[] = {
     {"wipe", Prop_Wipe}
 };
 
-void CheckShortProperty(char *prop)
+void CheckShortProperty(char *prop, argument *args)
 {
-
+    size_t length = sizeof(ShortPropertyData) / sizeof(PropertyData);
+    CheckProperty(ShortPropertyData, length, prop, args);
 }
-void CheckLongProperty(char *prop)
+void CheckLongProperty(char *prop, argument *args)
 {
-
+    size_t length = sizeof(LongPropertyData) / sizeof(PropertyData);
+    CheckProperty(LongPropertyData, length, prop, args);
+}
+void CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argument *args)
+{
+    for(int i = 0; i < length; i++)
+    {
+        PropertyData propData = AllPropData[i];
+        if(strcmp(propData.name, prop) == 0)
+        {
+            propData.onPropSelect(args);
+        }
+    }
 }
 
 void Prop_Wipe(argument *args)
 {
-
 }
