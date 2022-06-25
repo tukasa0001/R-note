@@ -42,6 +42,7 @@ void LoadSettings(SettingsData *settings)
         if(strcmp(key, "Folder_Path") == 0) targetVal = settings->folder_path;
         else if(strcmp(key, "Extension") == 0) targetVal = settings->extension;
         else if(strcmp(key, "EditorPath") == 0) targetVal = settings->EditorPath;
+        else if(strcmp(key, "DeleteEmptyFiles") == 0) targetVal = settings->DeleteEmptyFiles;
 
         if(targetVal != NULL)
         {
@@ -69,6 +70,7 @@ void SaveSettings(SettingsData *settings)
     fprintf(fp, "Folder_Path = %s\n", settings->folder_path);
     fprintf(fp, "Extension = %s\n", settings->extension);
     fprintf(fp, "EditorPath = %s\n", settings->EditorPath);
+    fprintf(fp, "DeleteEmptyFiles = %s\n", settings->DeleteEmptyFiles);
     fclose(fp);
 }
 
@@ -96,17 +98,20 @@ void EditSettings(SettingsData *settings, bool editAll)
     char *values[AllSettingsNum] = {
         settings->folder_path,
         settings->extension,
-        settings->EditorPath
+        settings->EditorPath,
+        settings->DeleteEmptyFiles
     };
     char *messages[AllSettingsNum] = {
         "メモの保存先フォルダー",
         "メモの拡張子",
-        "テキストエディターのパス"
+        "テキストエディターのパス",
+        "空のメモを自動で削除する(yes/no)"
     };
     char *defaultValues[AllSettingsNum] = {
         ".\\",
         "txt",
-        "notepad.exe"
+        "notepad.exe",
+        "yes"
     };
     bool noChanges = true;
     for(int i = 0; i < AllSettingsNum; i++)
@@ -138,6 +143,7 @@ void InitSettings(SettingsData *settings)
     settings->length_FolderPath = FolderPathLen;
     settings->length_extension = ExtensionLen;
     settings->length_EditorPath = EditorPathLen;
+    settings->length_DeleteEmptyFiles = DeleteEmptyFilesLen;
 }
 
 

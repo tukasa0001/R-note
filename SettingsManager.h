@@ -5,7 +5,7 @@
 #include <stdbool.h>
 //enum
 //構造体
-#define AllSettingsNum 3
+#define AllSettingsNum 4
 typedef struct
 {
     #define FolderPathLen 130
@@ -22,6 +22,11 @@ typedef struct
     unsigned char length_EditorPath;
     char isRead_EditorPath;
     char EditorPath[EditorPathLen];
+
+    #define DeleteEmptyFilesLen 10
+    unsigned char length_DeleteEmptyFiles;
+    char isRead_DeleteEmptyFiles;
+    char DeleteEmptyFiles[DeleteEmptyFilesLen];
 } SettingsData;
 
 void InitSettings(SettingsData *settings);
