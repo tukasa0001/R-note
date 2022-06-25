@@ -15,7 +15,7 @@ typedef struct
 typedef struct
 {
     char *name;
-    void (*onPropSelect)(argument*);
+    bool (*onPropSelect)(argument*);
 } PropertyData;
 
 
@@ -25,5 +25,5 @@ bool CheckShortProperty(char *prop, argument *args);
 bool CheckLongProperty(char *prop, argument *args);
 bool CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argument *args);
 
-void Prop_Wipe(argument *args);
+bool Prop_Wipe(argument *args);
 #endif

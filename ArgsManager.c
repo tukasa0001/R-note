@@ -71,13 +71,13 @@ bool CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argumen
         PropertyData propData = AllPropData[i];
         if(strcmp(propData.name, prop) == 0)
         {
-            propData.onPropSelect(args);
-            return true;
+            return propData.onPropSelect(args);
         }
     }
     return false;
 }
 
-void Prop_Wipe(argument *args)
+bool Prop_Wipe(argument *args)
 {
+    return true;
 }
