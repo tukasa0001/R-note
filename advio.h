@@ -21,6 +21,7 @@ typedef enum
 //プロトタイプ宣言
 bool scanYesOrNo(char *msg);
 YesOrNo CheckYesOrNo(char *input);
+char* strLeftShift(char *input, int toShift);
 void ADVSetTextColor(Color color);
 void SetBGColor(Color color);
 void ResetColor();

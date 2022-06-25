@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include "advio.h"
@@ -49,6 +50,18 @@ YesOrNo CheckYesOrNo(char *input)
     ) return No;
 
     return Invalid;
+}
+//toShift: シフトする文字数。1の場合、"1234"=>"234"のように動きます。
+char* strLeftShift(char *input, int toShift)
+{
+    int length = strlen(input);
+    char *str;
+    str = (char*)malloc(sizeof(char) * (length + 1));
+    for(int i = 0; i < length; i++)
+    {
+        str[i] = input[i+2];
+    }
+    return str;
 }
 
 void ADVSetTextColor(Color color)
