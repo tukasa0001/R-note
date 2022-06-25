@@ -3,7 +3,6 @@
 #include <string.h>
 #include "advio.h"
 
-static YesOrNo _CheckYesOrNo(char *input);
 bool scanYesOrNo(char *msg)
 {
     char str[10];
@@ -22,7 +21,7 @@ bool scanYesOrNo(char *msg)
     }
 }
 
-static YesOrNo _CheckYesOrNo(char *input)
+YesOrNo scanYesOrNo(char *input)
 {
     //YES判定
     if(strcmp(input, "Yes") == 0 ||

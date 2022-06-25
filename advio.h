@@ -20,6 +20,7 @@ typedef enum
 } YesOrNo;
 //プロトタイプ宣言
 bool scanYesOrNo(char *msg);
+YesOrNo scanYesOrNo(char *input);
 void ADVSetTextColor(Color color);
 void SetBGColor(Color color);
 void ResetColor();
