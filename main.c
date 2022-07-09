@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "ArgsManager.h"
 #include "FileControl.h"
 #include "SettingsManager.h"
@@ -46,4 +47,5 @@ void main(int argc, char *argv[])
             printf("エラー: 処理モードが不正です");
             break;
     }
+    system("exit");
 }
