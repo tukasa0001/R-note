@@ -16,7 +16,7 @@ bool ExpandStr(StringArray *arr, int toAdd)
     char *newPtr = realloc(arr->string, sizeof(char) * (arr->size + toAdd));
     if(newPtr == NULL) return false;
     arr->size += toAdd;
-    arr->string = newPtr
+    arr->string = newPtr;
     return true;
 }
 bool ExpandPtr(StringArray *arr, int toAdd)
