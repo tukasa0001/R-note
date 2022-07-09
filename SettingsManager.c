@@ -34,7 +34,7 @@ void LoadSettings(SettingsData *settings)
     int i = 0;
     while (fgets(line, 128, fp) != NULL)
     {
-        printf(line);
+        //printf(line);
 
         char key[20], val[100];
         sscanf_s(line, "%s = %s", key,20, val,100);
