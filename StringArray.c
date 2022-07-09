@@ -1,6 +1,7 @@
 #include "StringArray.h"
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 StringArray* Init(int size)
 {
@@ -26,4 +27,19 @@ bool ExpandPtr(StringArray *arr, int toAdd)
     arr->ptrSize += toAdd;
     arr->stringPtr = newPtr;
     return true;
+}
+bool Add(StringArray *arr, char *str)
+{
+    bool err_str = false, err_ptr = false;
+    int strLength = strlen(str);
+    if(arr->size - arr->used < strLength) err_str = !ExpandStr(arr, strLength*1.5);
+    if(arr->ptrSize - arr->length < 1) err_ptr = !ExpandPtr(arr, 5);
+
+    if(err_str || err_ptr) return false;
+
+    strcpy((arr->string + arr->used), str);
+    strcpy((arr->string + arr->used + sizeof(char)), "\0");
+    arr->stringPtr[arr->length+1] = (arr->string + arr->used);
+    arr->used += strLength + 1;
+    arr->length++;
 }

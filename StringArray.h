@@ -14,4 +14,5 @@ typedef struct
 StringArray* Init(int size);
 bool ExpandStr(StringArray *arr, int toAdd);
 bool ExpandPtr(StringArray *arr, int toAdd);
+bool Add(StringArray *arr, char *str);
 #endif
