@@ -127,7 +127,7 @@ char* SelectFile(char *tag)
 {
 }
 
-char** GetAllFiles()
+char* GetAllFiles()
 {
     char searchPath[142];
     strcpy(searchPath, settings.folder_path);
