@@ -28,7 +28,21 @@ void main(int argc, char *argv[])
     printf("===============\n\n");
 #endif
 
-    char *filename = CreateAndOpenFile(args.tag);
-    if(CheckYesOrNo(settings.DeleteEmptyFiles) == Yes)
-        RemoveEmptyFiles(filename);
+    switch (args.operation)
+    {
+        case Create: {
+            char *filename = CreateAndOpenFile(args.tag);
+            if(CheckYesOrNo(settings.DeleteEmptyFiles) == Yes)
+                RemoveEmptyFiles(filename);
+            break;
+        }
+
+        case Wipe: {
+            break;
+        }
+
+        default:
+            printf("エラー: 処理モードが不正です");
+            break;
+    }
 }
