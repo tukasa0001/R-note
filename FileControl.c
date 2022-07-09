@@ -134,7 +134,7 @@ char** GetAllFiles()
     strcat(searchPath, "*.");
     strcat(searchPath, settings.extension);
 
-    char **Files = malloc(sizeof(char*) * 20);
+    char **Files = NULL;
     int index = 0;
 
     HANDLE fHandle;
@@ -144,7 +144,7 @@ char** GetAllFiles()
     do
     {
         //配列拡張
-        if(index%20 == 0) realloc(Files, sizeof(char*) * (index+20));
+        if(index%20 == 0) Files = realloc(Files, sizeof(char*) * (index+20));
 
         Files[index] = fd.cFileName;
         index++;
