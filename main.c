@@ -40,6 +40,7 @@ void main(int argc, char *argv[])
         case Wipe: {
             ADVSetTextColor(Yellow);
             printf("警告: この処理によって全てのメモが削除されます。\n");
+            ResetColor();
             if(scanYesOrNo("続行しますか? [yes|no] >"))
             {
                 WipeAllFiles();
