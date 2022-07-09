@@ -137,7 +137,6 @@ char* GetAllFiles()
     int length = 520;//260*2
     int used = 0;
     char *files = malloc(sizeof(char) * length);
-    int index = 0;
 
     HANDLE fHandle;
     WIN32_FIND_DATA fd;
@@ -155,7 +154,6 @@ char* GetAllFiles()
         used += strlen(fd.cFileName);
         strcpy((files + used), "\0");
         used += sizeof(char);
-        index++;
     } while (FindNextFile(fHandle, &fd));
 
     FindClose(fHandle);
