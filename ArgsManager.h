@@ -5,7 +5,8 @@
 typedef enum
 {
     Create = 0,
-    Wipe
+    Wipe,
+    Open
 } Operation;
 
 typedef struct
@@ -27,4 +28,5 @@ bool CheckLongProperty(char *prop, argument *args);
 bool CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argument *args);
 
 bool Prop_Wipe(argument *args);
+bool Prop_Open(argument *args);
 #endif

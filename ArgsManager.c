@@ -46,10 +46,12 @@ void initArgs(argument *args, int argc, char *argv[])
     }
 }
 static PropertyData ShortPropertyData[] = {
-    {"w", Prop_Wipe}
+    {"w", Prop_Wipe},
+    {"o", Prop_Open}
 };
 static PropertyData LongPropertyData[] = {
-    {"wipe", Prop_Wipe}
+    {"wipe", Prop_Wipe},
+    {"open", Prop_Open}
 };
 
 bool CheckShortProperty(char *prop, argument *args)
@@ -80,6 +82,18 @@ bool Prop_Wipe(argument *args)
     if(args->operation == Create && args->tag == NULL)
     {
         args->operation = Wipe;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+bool Prop_Open(argument *args)
+{
+    if(args->operation == Create && args->tag == NULL)
+    {
+        args->operation = Open;
         return true;
     }
     else
