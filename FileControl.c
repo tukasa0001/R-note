@@ -36,7 +36,6 @@ char* CreateAndOpenFile(char *tag)
         exit(1);
         return NULL;
     }
-    fprintf(fp, "ファイル作成テスト(%s)", path);
     fclose(fp);
 
     ShellExecute(NULL, "open", settings.EditorPath, path, NULL, SW_RESTORE);
