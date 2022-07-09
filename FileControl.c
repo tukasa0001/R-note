@@ -134,7 +134,9 @@ char** GetAllFiles()
     strcat(searchPath, "*.");
     strcat(searchPath, settings.extension);
 
-    char **Files = NULL;
+    int length = 520;//260*2
+    int used = 0;
+    char *files = malloc(sizeof(char) * length);
     int index = 0;
 
     HANDLE fHandle;
@@ -143,13 +145,17 @@ char** GetAllFiles()
     if(fHandle == INVALID_HANDLE_VALUE) return NULL;
     do
     {
-        //配列拡張
-        if(index%20 == 0) Files = realloc(Files, sizeof(char*) * (index+20));
-
-        Files[index] = fd.cFileName;
+        if(length - used < 260)
+        {
+            //配列拡張
+            length += 260;
+            files = realloc(fileno, sizeof(char*) * length);
+        }
+        strcpy((files + used), fd.cFileName);
+        used += strlen(fd.cFileName);
         index++;
     } while (FindNextFile(fHandle, &fd));
 
     FindClose(fHandle);
-    return Files;
+    return files;
 }
