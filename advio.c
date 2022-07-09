@@ -59,7 +59,7 @@ char* strLeftShift(char *input, int toShift)
     str = (char*)malloc(sizeof(char) * (length + 1));
     for(int i = 0; i < length; i++)
     {
-        str[i] = input[i+2];
+        str[i] = input[i+toShift];
     }
     return str;
 }
