@@ -140,7 +140,7 @@ char** GetAllFiles()
     HANDLE fHandle;
     WIN32_FIND_DATA fd;
     fHandle = FindFirstFile(searchPath, &fd);
-    if(fHandle == INVALID_HANDLE_VALUE) return;
+    if(fHandle == INVALID_HANDLE_VALUE) return NULL;
     do
     {
         //配列拡張
