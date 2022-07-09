@@ -123,7 +123,7 @@ void WipeAllFiles()
     FindClose(fHandle);
 }
 
-char* select(char *tag)
+char* SelectFile(char *tag)
 {
 }
 
