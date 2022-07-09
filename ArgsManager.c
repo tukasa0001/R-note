@@ -12,7 +12,6 @@
 //char *argv[]: コマンドライン引数
 void initArgs(argument *args, int argc, char *argv[])
 {
-    bool isTagAssigned = false;
 
     for (int i = 1; i < argc; i++)
     {
@@ -31,10 +30,9 @@ void initArgs(argument *args, int argc, char *argv[])
                 }
                 break;
             default:
-                if(!isTagAssigned)
+                if(args->tag == NULL)
                 {// タグとして割りあてる
                     args->tag = arg;
-                    isTagAssigned = true;
                 }
                 else isError = true;
                 break;
