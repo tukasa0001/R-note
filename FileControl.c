@@ -151,4 +151,5 @@ char** GetAllFiles()
     } while (FindNextFile(fHandle, &fd));
 
     FindClose(fHandle);
+    return Files;
 }
