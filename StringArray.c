@@ -13,11 +13,17 @@ StringArray* Init(int size)
 
 bool ExpandStr(StringArray *arr, int toAdd)
 {
+    char *newPtr = realloc(arr->string, sizeof(char) * (arr->size + toAdd));
+    if(newPtr == NULL) return false;
     arr->size += toAdd;
-    arr->string = realloc(arr->string, sizeof(char) * arr->size);
+    arr->string = newPtr
+    return true;
 }
 bool ExpandPtr(StringArray *arr, int toAdd)
 {
+    char **newPtr = realloc(arr->stringPtr, sizeof(char*) * (arr->ptrSize + toAdd));
+    if(newPtr == NULL) return false;
     arr->ptrSize += toAdd;
-    arr->stringPtr = realloc(arr->stringPtr, sizeof(char*) * arr->ptrSize);
+    arr->stringPtr = newPtr;
+    return true;
 }
