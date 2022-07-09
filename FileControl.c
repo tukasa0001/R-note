@@ -122,3 +122,33 @@ void WipeAllFiles()
 
     FindClose(fHandle);
 }
+
+char* select(char *tag)
+{
+}
+
+char** GetAllFiles()
+{
+    char searchPath[142];
+    strcpy(searchPath, settings.folder_path);
+    strcat(searchPath, "*.");
+    strcat(searchPath, settings.extension);
+
+    char **Files = malloc(sizeof(char*) * 20);
+    int index = 0;
+
+    HANDLE fHandle;
+    WIN32_FIND_DATA fd;
+    fHandle = FindFirstFile(searchPath, &fd);
+    if(fHandle == INVALID_HANDLE_VALUE) return;
+    do
+    {
+        //配列拡張
+        if(index%20 == 0) realloc(Files, sizeof(char*) * (index+20));
+
+        Files[index] = fd.cFileName;
+        index++;
+    } while (FindNextFile(fHandle, &fd));
+
+    FindClose(fHandle);
+}
