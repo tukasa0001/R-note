@@ -10,4 +10,8 @@ typedef struct
     int length;
     int ptrSize;
 } StringArray;
+
+StringArray* Init(int size);
+bool ExpandStr(StringArray *arr, int toAdd);
+bool ExpandPtr(StringArray *arr, int toAdd);
 #endif
