@@ -16,16 +16,6 @@ void main(int argc, char *argv[])
     InitSettings(&settings);
     LoadSettings(&settings);
 
-    char *files = GetAllFiles();
-    printf("ファイル名: ");
-    for(int i = 0; 1; i++)
-    {
-        if(files[i] == '\0') printf(",\nファイル名: ");
-        else if(files[i] == '\a') break;
-        else putchar(files[i]);
-    }
-    return;
-
 #ifdef debug
     printf("\n\n=====DEBUG=====\n");
     printf("SettingsData構造体の状態: \n");
