@@ -153,6 +153,8 @@ char* GetAllFiles()
         }
         strcpy((files + used), fd.cFileName);
         used += strlen(fd.cFileName);
+        strcpy((files + used), "\0");
+        used += sizeof(char);
         index++;
     } while (FindNextFile(fHandle, &fd));
 
