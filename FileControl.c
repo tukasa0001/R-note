@@ -94,3 +94,32 @@ void RemoveEmptyFiles(char *excludeFilename)
 
     FindClose(fHandle);
 }
+
+void WipeAllFiles()
+{
+    char searchPath[142];
+    strcpy(searchPath, settings.folder_path);
+    strcat(searchPath, "*.");
+    strcat(searchPath, settings.extension);
+
+    HANDLE fHandle;
+    WIN32_FIND_DATA fd;
+    fHandle = FindFirstFile(searchPath, &fd);
+    if(fHandle == INVALID_HANDLE_VALUE) return;
+    char removePath[255];
+    do
+    {
+        strcpy(removePath, settings.folder_path);
+        strcat(removePath, fd.cFileName);
+        if(!DeleteFile(removePath))
+        {
+            printf("警告: \"%s\"の削除に失敗しました。\n", fd.cFileName);
+        }
+        else
+        {
+            printf("削除: \"%s\"\n", fd.cFileName);
+        }
+    } while (FindNextFile(fHandle, &fd));
+
+    FindClose(fHandle);
+}

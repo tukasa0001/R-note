@@ -3,6 +3,7 @@
         "stdio.h": "c",
         "argsmanager.h": "c",
         "filecontrol.h": "c",
-        "windows.h": "c"
+        "windows.h": "c",
+        "settingsmanager.h": "c"
     }
 }

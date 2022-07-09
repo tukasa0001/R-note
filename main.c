@@ -42,7 +42,7 @@ void main(int argc, char *argv[])
             printf("警告: この処理によって全てのメモが削除されます。\n");
             if(scanYesOrNo("続行しますか? [yes|no] >"))
             {
-
+                WipeAllFiles();
             }
             else
             {
