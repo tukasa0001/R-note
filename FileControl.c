@@ -87,7 +87,7 @@ void RemoveEmptyFiles(char *excludeFilename)
             strcat(removePath, fd.cFileName);
             if(!DeleteFile(removePath))
             {
-                printf("警告: 空のファイルファイル\"%s\"の削除に失敗しました。\n", fd.cFileName);
+                printf("警告: 空のファイル\"%s\"の削除に失敗しました。\n", fd.cFileName);
             }
         }
     } while (FindNextFile(fHandle, &fd));
