@@ -11,7 +11,7 @@ typedef struct
     int ptrSize;
 } StringArray;
 
-StringArray* Init(int size);
+StringArray* StringArray_init(int size);
 bool ExpandStr(StringArray *arr, int toAdd);
 bool ExpandPtr(StringArray *arr, int toAdd);
 bool Add(StringArray *arr, char *str);

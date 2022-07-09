@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-StringArray* Init(int size)
+StringArray* StringArray_init(int size)
 {
     StringArray *arr = malloc(sizeof(StringArray));
     arr->size = size;
