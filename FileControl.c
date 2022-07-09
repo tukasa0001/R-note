@@ -149,7 +149,7 @@ char* GetAllFiles()
         {
             //配列拡張
             length += 260;
-            files = realloc(fileno, sizeof(char*) * length);
+            files = realloc(files, sizeof(char*) * length);
         }
         strcpy((files + used), fd.cFileName);
         used += strlen(fd.cFileName);
