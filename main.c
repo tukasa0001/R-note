@@ -38,6 +38,17 @@ void main(int argc, char *argv[])
         }
 
         case Wipe: {
+            ADVSetTextColor(Yellow);
+            printf("警告: この処理によって全てのメモが削除されます。\n");
+            if(scanYesOrNo("続行しますか? [yes|no] >"))
+            {
+
+            }
+            else
+            {
+                printf("削除はキャンセルされました。何かキーを押すと終了します。\n");
+                getchar();
+            }
             break;
         }
 
