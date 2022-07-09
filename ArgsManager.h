@@ -4,7 +4,8 @@
 //構造体・列挙型など
 typedef enum
 {
-    Create = 0
+    Create = 0,
+    Wipe
 } Operation;
 
 typedef struct
