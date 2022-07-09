@@ -43,6 +43,8 @@ void main(int argc, char *argv[])
             if(scanYesOrNo("続行しますか? [yes|no] >"))
             {
                 WipeAllFiles();
+                printf("\n削除が完了しました。何かキーを押すと終了します。\n");
+                getchar();
             }
             else
             {
