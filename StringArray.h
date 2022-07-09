@@ -1,6 +1,6 @@
 #ifndef STRARR
 #define STRARR
-
+#include <stdbool.h>
 typedef struct
 {
     int size;
