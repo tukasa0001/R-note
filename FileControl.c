@@ -156,6 +156,14 @@ char* GetAllFiles()
         used += sizeof(char);
     } while (FindNextFile(fHandle, &fd));
 
+    if(length - used < 1)
+    {
+        //配列拡張
+        length += 1;
+        files = realloc(files, sizeof(char*) * length);
+    }
+    strcpy((files + used), "\a");
+
     FindClose(fHandle);
     return files;
 }
