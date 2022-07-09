@@ -79,5 +79,13 @@ bool CheckProperty(PropertyData *AllPropData, size_t length, char *prop, argumen
 
 bool Prop_Wipe(argument *args)
 {
-    return true;
+    if(args->operation == Create)
+    {
+        args->operation = Wipe;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
