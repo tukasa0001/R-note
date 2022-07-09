@@ -55,9 +55,14 @@ void getFileName(char *filename, long long unsigned int size, char *tag)
         return;
     }
     time_t now = time(NULL);
+    struct tm *lnow = localtime(&now);
     char timestamp[20];
-    // 2000.01.01-00.00.00
-    strftime(timestamp, sizeof(timestamp), "%Y.%m.%d-%H.%M.%S", localtime(&now));
+    // 1900.1.1-0.0.0
+    sprintf_s(timestamp, sizeof(timestamp),
+            "%d.%d.%d-%d.%d.%d",
+            lnow->tm_year+1900, lnow->tm_mon+1, lnow->tm_mday,
+            lnow->tm_hour, lnow->tm_min, lnow->tm_sec
+    );
 
     if(tag != NULL && strlen(timestamp)+strlen(tag)+strlen("txt")+4 <= size)
     {
